@@ -20,24 +20,20 @@ public class TripleShotProjectile : Projectile
         SpawnProjectileAtAngle(-spreadAngle); // Down-right
     }
 
-void SpawnProjectileAtAngle(float angle)
-{
-    if (projectilePrefab == null) return;
-
-    // Create a new rotation based on the angle (not compounding with parent)
-    Quaternion newRotation = Quaternion.Euler(0, 0, angle);
-    GameObject newProjectile = Instantiate(
-        projectilePrefab, 
-        transform.position, 
-        newRotation // Use the angle directly, not relative to parent
-    );
-
-    // Copy properties (speed, damage) to the new projectile
-    Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
-    if (projectileComponent != null)
+    void SpawnProjectileAtAngle(float angle)
     {
-        projectileComponent.speed = speed;
-        projectileComponent.damage = damage;
+        if (projectilePrefab == null) return;
+
+        // Use Quaternion.Euler directly to set the angle (not relative to parent)
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        GameObject newProjectile = Instantiate(projectilePrefab, transform.position, rotation);
+
+        // Copy properties to the new projectile
+        Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
+        if (projectileComponent != null)
+        {
+            projectileComponent.speed = speed;
+            projectileComponent.damage = damage;
+        }
     }
-}
 }

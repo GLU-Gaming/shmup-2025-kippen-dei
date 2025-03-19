@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 940508982914295003}
   - component: {fileID: 1394440637047787944}
   m_Layer: 0
-  m_Name: DualShot 1
+  m_Name: TripleShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

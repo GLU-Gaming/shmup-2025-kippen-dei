@@ -1,10 +1,15 @@
 using UnityEngine;
 
-public class BaseProjectile : Projectile // Inherits from the base class
+public class BaseProjectile : Projectile
 {
-    protected override void Move()
+    private Rigidbody _rb;
+
+    protected override void Start()
     {
-        // Use local direction with doubled speed
-        transform.Translate(Vector3.right * (speed * 2 * Time.deltaTime), Space.Self);
+        base.Start();
+        _rb = GetComponent<Rigidbody>();
+        
+        // Set velocity in the direction the projectile is facing
+        _rb.linearVelocity = transform.right * (speed * 2);
     }
 }

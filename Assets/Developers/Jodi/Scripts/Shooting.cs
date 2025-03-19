@@ -1,4 +1,3 @@
-using Unity.Cinemachine;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -6,20 +5,24 @@ public class Shooting : MonoBehaviour
     [Header("Shooting")]
     public GameObject projectile; // The projectile prefab
     public Transform ShootPoint; // The point where the projectile will be spawned
-   
-    //Spawn the projectile when the space key is pressed
-    void Update() 
+
+    private float nextShootTime = 0f; // Shootingcooldown
+
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextShootTime) // Shoot when space is pressed
         {
             Shoot();
         }
-}
-    
-    //Instantiate the projectile at the ShootPoint position and rotation
-    
-public void Shoot()
-{
-    Instantiate(projectile, ShootPoint.position, ShootPoint.rotation);
-}
+    }
+
+    public void Shoot()
+    {
+        GameObject newProjectile = Instantiate(projectile, ShootPoint.position, ShootPoint.rotation);
+        Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
+        if (projectileComponent != null)
+        {
+            nextShootTime = Time.time + projectileComponent.cooldownTime;
+        }
+    }
 }

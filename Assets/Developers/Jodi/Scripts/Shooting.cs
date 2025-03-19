@@ -2,26 +2,31 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [Header("Shooting")]
-    public GameObject projectile; // The projectile prefab
-    public Transform ShootPoint; // The point where the projectile will be spawned
+    [Header("Shooting Settings")]
+    public GameObject projectile; // Assign this in the Inspector with your projectile prefab
+    public Transform shootPoint; // The spawn point for projectiles
 
-    private float nextShootTime = 0f; // Shootingcooldown
+    private float nextShootTime = 0f; // Cooldown tracker
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && Time.time >= nextShootTime) // Shoot when space is pressed
+        // Shoot when Space is held down and cooldown has expired
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextShootTime)
         {
             Shoot();
         }
     }
 
-    public void Shoot()
+    void Shoot()
     {
-        GameObject newProjectile = Instantiate(projectile, ShootPoint.position, ShootPoint.rotation);
+        // Spawn the projectile at the shoot point
+        GameObject newProjectile = Instantiate(projectile, shootPoint.position, shootPoint.rotation);
+        
+        // Get the Projectile component to read its cooldownTime
         Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         if (projectileComponent != null)
         {
+            // Set the cooldown based on the projectile's settings
             nextShootTime = Time.time + projectileComponent.cooldownTime;
         }
     }

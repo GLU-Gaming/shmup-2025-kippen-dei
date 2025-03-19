@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 8933416052860739354}
   - component: {fileID: 4338419788175185726}
   - component: {fileID: 940508982914295003}
-  - component: {fileID: 549043066635605032}
-  - component: {fileID: -2152556389734870694}
+  - component: {fileID: 1479584899812242756}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: DualShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +109,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &549043066635605032
+--- !u!114 &1479584899812242756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,37 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8649891718810925292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6aa99869ac70e540bec0695e8364c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 3654a6edb435b224c86badcbb3b2a58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 5
+  speed: 10
   lifeTime: 5
-  cooldownTime: 0.5
---- !u!54 &-2152556389734870694
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649891718810925292}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  cooldownTime: 0.3
+  spreadAngle: 20
+  projectilePrefab: {fileID: 8649891718810925292, guid: ec46d93436e1bca48b64c37e6927b2c2, type: 3}

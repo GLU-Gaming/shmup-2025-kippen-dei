@@ -4,6 +4,8 @@ public abstract class EnemyBase : MonoBehaviour
 {
     protected GameManagerA gamaManager;
 
+    public abstract void Move();
+
     protected virtual void Start()
     {
         gamaManager = FindAnyObjectByType<GameManagerA>();

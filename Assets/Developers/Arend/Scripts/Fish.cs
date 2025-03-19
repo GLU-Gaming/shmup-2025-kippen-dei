@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Fish : EnemyBase
 {
+    [Header("Fish Settings")]
     public float speed = 2f;
     private bool movingLeft = true;
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float speed = 10f; // Movement speed
     public float maxX = 5f, maxY = 3f; // Movement boundaries
 

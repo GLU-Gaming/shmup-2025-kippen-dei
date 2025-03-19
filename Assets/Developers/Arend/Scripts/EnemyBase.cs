@@ -2,16 +2,20 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    public int Damage = 1;
-    public abstract void Move();
+    protected GameManagerA gamaManager;
 
-    protected void DamagePlayer()
+    protected virtual void Start()
     {
-        // Logica om damage te doen
+        gamaManager = FindAnyObjectByType<GameManagerA>();
     }
 
-    protected void DestroyEnemy()
+    private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if (collision.collider.CompareTag("player"))
+        {
+
+
+            Destroy(gameObject);
+        }
     }
 }

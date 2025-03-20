@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4338419788175185726}
   - component: {fileID: 940508982914295003}
   - component: {fileID: 1479584899812242756}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DualShot
   m_TagString: Bullet
   m_Icon: {fileID: 0}

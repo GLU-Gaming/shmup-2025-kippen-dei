@@ -331,10 +331,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 958612677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c21c1c21ccda8e408e7e77b49da2c14, type: 3}
+  m_Script: {fileID: 11500000, guid: 0007b541ea13a82498382f5aa2560362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  speed: 2
 --- !u!1 &1301531810
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,11 +722,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEnemyPrefabs: []
-  flyingSpawnLocation: {fileID: 0}
+  flyingSpawnLocations: []
+  flyingSpawnProbability: 0.5
   groundEnemyPrefabs:
   - {fileID: 2515528378546514004, guid: 06f275f89eda6a94897cbcb4c6a38ad0, type: 3}
   groundSpawnLocation: {fileID: 1859676835}
-  spawnInterval: 2
+  minSpawnInterval: 1
+  maxSpawnInterval: 5
 --- !u!4 &1960515224
 Transform:
   m_ObjectHideFlags: 0

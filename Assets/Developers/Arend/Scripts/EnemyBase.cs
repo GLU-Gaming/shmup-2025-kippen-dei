@@ -2,6 +2,10 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
+
+    [Header("Health Settings")]
+    public float hp = 100f; // Health points
+
     protected GameManagerA gamaManager;
 
     public abstract void Move();
@@ -11,13 +15,31 @@ public abstract class EnemyBase : MonoBehaviour
         gamaManager = FindAnyObjectByType<GameManagerA>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("player"))
+        if (collision.collider.CompareTag("Bullet"))
         {
-
-
-            Destroy(gameObject);
+            Projectile projectile = collision.collider.GetComponent<Projectile>();
+            if (projectile != null)
+            {
+                TakeDamage(projectile.damage);
+            }
         }
+    }
+
+    //when taking damage, subtract the damage from the health points
+    void TakeDamage(float damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    //when health points reach 0, destroy the object
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

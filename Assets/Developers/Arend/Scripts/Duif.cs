@@ -3,7 +3,7 @@ using UnityEngine;
 public class Duif : EnemyBase
 {
     [Header("Bird Settings")]
-    public float speed = 3f;  
+    public float speed = 3f;
 
     [Header("Shooting Settings")]
     public GameObject projectilePrefab;
@@ -19,7 +19,7 @@ public class Duif : EnemyBase
 
     public override void Move()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
     }
 
     private void Shoot()

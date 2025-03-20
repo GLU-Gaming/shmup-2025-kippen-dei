@@ -20,7 +20,6 @@ public class EnemyProjectile : Projectile
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("hit");
         if (collision.collider.CompareTag("Player"))
         {
             // Apply damage to the player

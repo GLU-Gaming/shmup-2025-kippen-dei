@@ -27,6 +27,14 @@ public class Player : MonoBehaviour
         );
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Collider>().CompareTag("Enemy"))
+        {
+            TakeDamage(1f);
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         playerHp -= damage;

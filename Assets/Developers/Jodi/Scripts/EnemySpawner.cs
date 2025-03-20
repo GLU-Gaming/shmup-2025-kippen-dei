@@ -55,12 +55,15 @@ public class EnemySpawner : MonoBehaviour
     {
         int randomPrefabIndex = Random.Range(0, enemyPrefabs.Count);
         int randomLocationIndex = Random.Range(0, spawnLocations.Count);
-        Instantiate(enemyPrefabs[randomPrefabIndex], spawnLocations[randomLocationIndex].position, spawnLocations[randomLocationIndex].rotation);
+        GameObject enemyPrefab = enemyPrefabs[randomPrefabIndex];
+        Transform spawnLocation = spawnLocations[randomLocationIndex];
+        Instantiate(enemyPrefab, spawnLocation.position, enemyPrefab.transform.rotation);
     }
 
     void SpawnRandomEnemy(List<GameObject> enemyPrefabs, Transform spawnLocation)  //spawn enemy from list of prefabs at specific location  
     {
         int randomIndex = Random.Range(0, enemyPrefabs.Count);
-        Instantiate(enemyPrefabs[randomIndex], spawnLocation.position, spawnLocation.rotation);
+        GameObject enemyPrefab = enemyPrefabs[randomIndex];
+        Instantiate(enemyPrefab, spawnLocation.position, enemyPrefab.transform.rotation);
     }
 }

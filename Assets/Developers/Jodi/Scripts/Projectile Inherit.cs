@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public float lifeTime = 5f;
     public float cooldownTime = 0.3f;
 
-    private Vector3 initialDirection;
+    public Vector3 initialDirection;
     private Quaternion initialRotation;
 
     protected virtual void Start()

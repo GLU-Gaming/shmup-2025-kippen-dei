@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
     public float speed = 10f; // Movement speed
     public float maxX = 5f, maxY = 3f; // Movement boundaries
 
+    [Header("Player Health Settings")]
+    public float playerHp = 9f;
+
     void Update()
     {
         // Get input for movement
@@ -22,5 +25,21 @@ public class Player : MonoBehaviour
             Mathf.Clamp(transform.position.y, -maxY, maxY),
             transform.position.z
         );
+    }
+
+    public void TakeDamage(float damage)
+    {
+        playerHp -= damage;
+        if (playerHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // Handle player death logic here
+        Debug.Log("Player has died.");
+        // Add scene reload or game over logic
     }
 }

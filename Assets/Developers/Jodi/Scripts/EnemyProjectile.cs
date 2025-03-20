@@ -20,16 +20,17 @@ public class EnemyProjectile : Projectile
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("hit");
         if (collision.collider.CompareTag("Player"))
         {
             // Apply damage to the player
             Player playerComponent = collision.collider.GetComponent<Player>();
             if (playerComponent != null)
             {
-                // Player take damage(Not implemented)
-                //playerComponent.TakeDamage(damage);
+                // Player take damage
+                playerComponent.TakeDamage(damage);
             }
-            Destroy(gameObject);
+            Destroy(gameObject); // delete the Projectile
         }
     }
 }

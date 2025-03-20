@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8933416052860739354}
   - component: {fileID: 4338419788175185726}
   - component: {fileID: 940508982914295003}
-  - component: {fileID: 1394440637047787944}
+  - component: {fileID: -8647893652850592408}
   m_Layer: 7
-  m_Name: TripleShot
+  m_Name: SingleShot
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8649891718810925292}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4338419788175185726
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1394440637047787944
+--- !u!114 &-8647893652850592408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,13 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8649891718810925292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6675285211696b46ba74bcb834a6186, type: 3}
+  m_Script: {fileID: 11500000, guid: 686e92de077708e40aaf138b1b74272a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 60
   speed: 10
   lifeTime: 5
   cooldownTime: 0.3
   initialDirection: {x: 0, y: 0, z: 0}
-  spreadAngle: 30
-  projectilePrefab: {fileID: 8649891718810925292, guid: d97a6258881eeac48b21319ea8811f6e, type: 3}
+  projectilePrefab: {fileID: 8649891718810925292, guid: ec46d93436e1bca48b64c37e6927b2c2, type: 3}

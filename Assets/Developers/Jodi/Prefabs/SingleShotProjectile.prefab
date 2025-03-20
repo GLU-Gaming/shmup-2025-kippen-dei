@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 549043066635605032}
   - component: {fileID: -2152556389734870694}
   m_Layer: 7
-  m_Name: ProjectileSingle
+  m_Name: SingleShotProjectile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   speed: 5
   lifeTime: 5
   cooldownTime: 0.5
+  initialDirection: {x: 0, y: 100, z: 0}
 --- !u!54 &-2152556389734870694
 Rigidbody:
   m_ObjectHideFlags: 0

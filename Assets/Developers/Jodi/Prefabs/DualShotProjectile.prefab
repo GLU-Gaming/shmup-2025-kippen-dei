@@ -126,6 +126,7 @@ MonoBehaviour:
   speed: 5
   lifeTime: 5
   cooldownTime: 0.5
+  initialDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &-2152556389734870694
 Rigidbody:
   m_ObjectHideFlags: 0

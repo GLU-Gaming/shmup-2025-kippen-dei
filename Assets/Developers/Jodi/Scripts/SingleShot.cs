@@ -1,29 +1,27 @@
 using UnityEngine;
 
-public class DualShotProjectile : Projectile
+public class SingleShotProjectile : Projectile
 {
-    [Header("Dual Shot Settings")]
-    public float spreadAngle = 30f;
+    [Header("Single Shot Settings")]
     public GameObject projectilePrefab;
 
     protected override void Start()
     {
         base.Start();
-        FireDiagonalShots();
-        Destroy(gameObject); // Remove this object
+        FireSingleShot();
+        Destroy(gameObject); // Remove this object after firing
     }
 
-    void FireDiagonalShots()
+    void FireSingleShot()
     {
-        SpawnProjectileAtAngle(spreadAngle);  // Up-right
-        SpawnProjectileAtAngle(-spreadAngle); // Down-right
+        SpawnProjectileAtAngle(0); // Fire straight forward
     }
 
     void SpawnProjectileAtAngle(float angle)
     {
         if (projectilePrefab == null) return;
 
-        // Use Quaternion.Euler directly to set the angle (not relative to parent)
+        // Use Quaternion.Euler to set the angle (not relative to parent)
         Quaternion rotation = Quaternion.Euler(0, 0, angle);
         GameObject newProjectile = Instantiate(projectilePrefab, transform.position, rotation);
 

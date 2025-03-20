@@ -6,15 +6,15 @@ public class EnemySpawner : MonoBehaviour
     [Header("Flying Enemies")]
     public List<GameObject> flyingEnemyPrefabs;     //list of flying enemy prefabs
     public List<Transform> flyingSpawnLocations;    //list of flying spawn locations
-    public float flyingSpawnProbability = 0.5f; // Probability of spawning a flying enemy
+    public float flyingSpawnProbability = 0.5f;     // Probability of spawning a flying enemy
 
     [Header("Ground Enemies")]
     public List<GameObject> groundEnemyPrefabs;  //list of ground enemy prefabs
-    public Transform groundSpawnLocation;  //ground spawn location
+    public Transform groundSpawnLocation;       //ground spawn location
 
     [Header("Spawn Settings")]
-    public float minSpawnInterval = 3f;  //minimum spawn interval
-    public float maxSpawnInterval = 7f; //maximum spawn interval
+    public float minSpawnInterval = 1f;  //minimum spawn interval
+    public float maxSpawnInterval = 5f;  //maximum spawn interval
 
     private float nextSpawnTime;
 

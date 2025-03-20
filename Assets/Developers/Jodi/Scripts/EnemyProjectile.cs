@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyProjectile : Projectile
 {
     public Vector3 direction; // Direction the enemy projectile will move in
-
+    
     protected override void Start()
     {
         base.Start();

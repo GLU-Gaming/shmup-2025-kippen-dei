@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8649891718810925292
+--- !u!1 &5599435068132058495
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7591125706670243290}
-  - component: {fileID: 8933416052860739354}
-  - component: {fileID: 4338419788175185726}
-  - component: {fileID: 940508982914295003}
-  - component: {fileID: 1479584899812242756}
-  m_Layer: 7
-  m_Name: DualShot
-  m_TagString: Bullet
+  - component: {fileID: 5260171427712817598}
+  - component: {fileID: 6534274453661297225}
+  - component: {fileID: 7835248038685599252}
+  - component: {fileID: 2438243314740896113}
+  - component: {fileID: 7305895129757046142}
+  m_Layer: 0
+  m_Name: Fish Projectlie
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7591125706670243290
+--- !u!4 &5260171427712817598
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649891718810925292}
+  m_GameObject: {fileID: 5599435068132058495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 6.3345327, y: 0.63283974, z: -7.273561}
+  m_LocalScale: {x: 0.32825, y: 0.32825, z: 0.32825}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8933416052860739354
+--- !u!33 &6534274453661297225
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649891718810925292}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4338419788175185726
+  m_GameObject: {fileID: 5599435068132058495}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7835248038685599252
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649891718810925292}
+  m_GameObject: {fileID: 5599435068132058495}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,13 +88,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &940508982914295003
+--- !u!135 &2438243314740896113
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649891718810925292}
+  m_GameObject: {fileID: 5599435068132058495}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -109,22 +109,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1479584899812242756
+--- !u!114 &7305895129757046142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649891718810925292}
+  m_GameObject: {fileID: 5599435068132058495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3654a6edb435b224c86badcbb3b2a58a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c80fb213aedb854d8e70e6a5d8ed8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 1
   speed: 10
   lifeTime: 5
   cooldownTime: 0.3
-  initialDirection: {x: 0, y: 0, z: 0}
-  spreadAngle: 20
-  projectilePrefab: {fileID: 8649891718810925292, guid: 80a19b52d5a62dd40ad2cfe3a89685e3, type: 3}
+  initialDirection: {x: -180, y: 180, z: 0}
+  direction: {x: -180, y: 180, z: 0}

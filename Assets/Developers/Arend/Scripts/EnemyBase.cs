@@ -6,14 +6,9 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Health Settings")]
     public float hp = 100f; // Health points
 
-    protected GameManagerA gamaManager;
+    
 
     public abstract void Move();
-
-    protected virtual void Start()
-    {
-        gamaManager = FindAnyObjectByType<GameManagerA>();
-    }
 
     void OnCollisionEnter(Collision collision)
     {

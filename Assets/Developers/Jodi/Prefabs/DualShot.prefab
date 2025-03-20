@@ -121,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3654a6edb435b224c86badcbb3b2a58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   speed: 10
   lifeTime: 5
   cooldownTime: 0.3
+  initialDirection: {x: 0, y: 0, z: 0}
   spreadAngle: 20
   projectilePrefab: {fileID: 8649891718810925292, guid: 80a19b52d5a62dd40ad2cfe3a89685e3, type: 3}

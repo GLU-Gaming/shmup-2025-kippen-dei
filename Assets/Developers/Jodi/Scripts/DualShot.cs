@@ -23,12 +23,11 @@ public class DualShotProjectile : Projectile
     {
         if (projectilePrefab == null) return;
 
-        GameObject newProjectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        // Use Quaternion.Euler directly to set the angle (not relative to parent)
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        GameObject newProjectile = Instantiate(projectilePrefab, transform.position, rotation);
 
-        // Apply rotation manually
-        newProjectile.transform.rotation = Quaternion.Euler(0, 0, angle) * transform.rotation;
-
-        // Copy projectile properties
+        // Copy properties to the new projectile
         Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         if (projectileComponent != null)
         {

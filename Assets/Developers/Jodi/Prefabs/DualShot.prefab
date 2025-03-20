@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1479584899812242756}
   m_Layer: 0
   m_Name: DualShot
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8649891718810925292}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4338419788175185726
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -126,4 +126,4 @@ MonoBehaviour:
   lifeTime: 5
   cooldownTime: 0.3
   spreadAngle: 20
-  projectilePrefab: {fileID: 8649891718810925292, guid: ec46d93436e1bca48b64c37e6927b2c2, type: 3}
+  projectilePrefab: {fileID: 8649891718810925292, guid: 80a19b52d5a62dd40ad2cfe3a89685e3, type: 3}

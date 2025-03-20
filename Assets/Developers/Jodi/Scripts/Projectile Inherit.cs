@@ -28,4 +28,13 @@ public class Projectile : MonoBehaviour
         transform.rotation = initialRotation; // Ensure rotation remains constant
         transform.Translate(initialDirection * (speed * Time.deltaTime), Space.World);
     }
+
+    // Destroy the projectile when it collides with an enemy
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

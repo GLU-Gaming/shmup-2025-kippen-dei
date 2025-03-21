@@ -281,7 +281,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208874740}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!4 &208874743
 Transform:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775860598}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!4 &775860601
 Transform:
   m_ObjectHideFlags: 0
@@ -915,7 +915,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935332269}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!4 &935332272
 Transform:
   m_ObjectHideFlags: 0
@@ -1224,7 +1224,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859676832}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!4 &1859676835
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   - {fileID: 4460777934629397121, guid: b40d3fc526ffafe41ad3021b6be09be9, type: 3}
   groundSpawnLocation: {fileID: 1859676835}
   minSpawnInterval: 1
-  maxSpawnInterval: 5
+  maxSpawnInterval: 2
 --- !u!4 &1960515224
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,6 +1407,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1961843635212236096, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5024417039912200571, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

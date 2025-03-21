@@ -123,5 +123,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   speed: 6
-  zigzagHeight: 0.2
-  zigzagInterval: 1
+  zigzagHeight: 0.5
+  zigzagInterval: 0.5

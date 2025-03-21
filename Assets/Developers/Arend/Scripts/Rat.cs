@@ -4,7 +4,6 @@ public class ZigzagEnemyMovement : EnemyBase
 {
     [Header("Rat Movement Settings")]
     public float speed = 5f;        // Snelheid van de vijand
-    public float zigzagHeight = 2f; // Hoogte van de zigzagbeweging
     public float zigzagInterval = 1f; // Hoe vaak de richting verandert
 
     private Vector3 direction;
@@ -54,7 +53,4 @@ public class ZigzagEnemyMovement : EnemyBase
             }
         }
     }
-
-  
-
 }

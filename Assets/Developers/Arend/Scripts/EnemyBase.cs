@@ -36,5 +36,6 @@ public abstract class EnemyBase : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        FindObjectOfType<ScoreManager>().AddScore(10);
     }
 }

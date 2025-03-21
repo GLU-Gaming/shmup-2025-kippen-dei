@@ -48,6 +48,5 @@ public class Player : MonoBehaviour
     {
         // Handle player death logic here
         Debug.Log("Player has died.");
-        // Add scene reload or game over logic
     }
 }

@@ -4,7 +4,12 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     // Method to load the game scene
-    public void LoadGame()
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene("Intro"); 
+    }
+    
+    public void StartGame()
     {
         SceneManager.LoadScene("Game"); 
     }

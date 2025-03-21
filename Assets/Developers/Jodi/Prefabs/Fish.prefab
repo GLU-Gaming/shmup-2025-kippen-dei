@@ -238,7 +238,7 @@ MonoBehaviour:
   hp: 100
   speed: 2
   rotationSpeed: 5
-  projectilePrefab: {fileID: 5599435068132058495, guid: 822d36305787da2449b2c3483dca71f6, type: 3}
+  projectilePrefab: {fileID: 5599435068132058495, guid: 75779196a26e14e46add88f101d8036f, type: 3}
   firePoint: {fileID: 5551143139787673333}
   fireRate: 1.5
 --- !u!1 &5473474039965728849

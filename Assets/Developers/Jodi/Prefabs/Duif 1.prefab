@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 191600087066432664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,13 +79,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2363137075383423671, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
       propertyPath: m_Name
       value: Duif 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501130478890122924, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395691161322255491, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136350982357623102, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623205613890691929, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

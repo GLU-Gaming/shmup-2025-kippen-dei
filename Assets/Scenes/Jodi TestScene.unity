@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1dc740913538f4996cfe50ab5365bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8649891718810925292, guid: d05e8c17f0a02384da09665b0e5393aa, type: 3}
+  projectile: {fileID: 8649891718810925292, guid: dc32dd2ab3e88c64f8bc26bc4648a4a2, type: 3}
   shootPoint: {fileID: 449807344}
 --- !u!114 &1153307055
 MonoBehaviour:
@@ -1076,14 +1076,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEnemyPrefabs:
-  - {fileID: 2515528378546514004, guid: 06f275f89eda6a94897cbcb4c6a38ad0, type: 3}
+  - {fileID: 4749233817498354254, guid: 3dfacc34e67f6604bbde1072fb5e4c49, type: 3}
+  - {fileID: 6112105978182557502, guid: 3759d71cdd9ae8c46a3c9ffba7aa8170, type: 3}
   flyingSpawnLocations:
   - {fileID: 935332272}
   - {fileID: 208874743}
   - {fileID: 775860601}
   flyingSpawnProbability: 0.5
   groundEnemyPrefabs:
-  - {fileID: 2515528378546514004, guid: 06f275f89eda6a94897cbcb4c6a38ad0, type: 3}
+  - {fileID: 4460777934629397121, guid: b40d3fc526ffafe41ad3021b6be09be9, type: 3}
   groundSpawnLocation: {fileID: 1859676835}
   minSpawnInterval: 1
   maxSpawnInterval: 5

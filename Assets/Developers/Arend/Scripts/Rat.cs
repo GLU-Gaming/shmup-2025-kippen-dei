@@ -19,6 +19,16 @@ public class ZigzagEnemyMovement : EnemyBase
     void Update()
     {
         Move();
+        CheckPosition();
+    }
+
+    private void CheckPosition()
+    {
+        // Vernietig de vijand als deze buiten het scherm is
+        if (transform.position.x <= -18f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void Move()

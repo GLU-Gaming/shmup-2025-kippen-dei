@@ -15,6 +15,15 @@ public class Duif : EnemyBase
     {
         Move();
         Shoot();
+        CheckPosition();
+    }
+
+    private void CheckPosition()
+    {
+        if (transform.position.x <= -18f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void Move()

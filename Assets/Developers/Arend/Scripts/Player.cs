@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance; // Singleton voor makkelijke toegang
+
     [Header("Movement Settings")]
     public float speed = 10f; // Movement speed
     public float maxX = 5f, maxY = 3f; // Movement boundaries
 
     [Header("Player Health Settings")]
+    public float maxHealth = 9f;   
     public float playerHp = 9f;
 
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     void Update()
     {
         // Get input for movement

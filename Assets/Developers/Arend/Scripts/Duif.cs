@@ -11,6 +11,11 @@ public class Duif : EnemyBase
     public float fireRate = 1.8f;
     private float fireTimer;
 
+    void Start()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
+    }
+
     void Update()
     {
         Move();

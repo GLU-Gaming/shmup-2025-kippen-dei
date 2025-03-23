@@ -27,7 +27,7 @@ public class EnemyProjectile : Projectile
             {
                 playerComponent.TakeDamage(damage);
             }
-            Destroy(gameObject); /
+            Destroy(gameObject); 
         }
     }
 }

@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Super cool placeholder lore and description thats totally insane
   health: 100
   damage: 1
-  enemyModel: {fileID: 5688468550320305089, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
+  enemyModel: {fileID: 5688468550320305089, guid: c93b4eac7d892e9459f259b93092e419, type: 3}

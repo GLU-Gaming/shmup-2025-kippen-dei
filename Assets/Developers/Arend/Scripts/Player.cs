@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
         // Move the plane directly
-        Vector3 move = new Vector3(moveX, moveY, 0) * speed * Time.deltaTime;
+        Vector3 move = new Vector3(moveX, moveY, 0) * (speed * Time.deltaTime);
         transform.position += move;
 
         // Clamp position to stay within boundaries

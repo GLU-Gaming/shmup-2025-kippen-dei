@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyProjectile : Projectile
 {
-    public Vector3 direction; // Direction the enemy projectile will move in
-    
+    public Vector3 direction; // Direction the projectile moves in
+
     protected override void Start()
     {
         base.Start();
@@ -18,18 +18,16 @@ public class EnemyProjectile : Projectile
         transform.Translate(initialDirection * (speed * Time.deltaTime), Space.World);
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            // Apply damage to the player
-            Player playerComponent = collision.collider.GetComponent<Player>();
+            Player playerComponent = other.GetComponent<Player>();
             if (playerComponent != null)
             {
-                // Player take damage
                 playerComponent.TakeDamage(damage);
             }
-            Destroy(gameObject); // delete the Projectile
+            Destroy(gameObject); /
         }
     }
 }

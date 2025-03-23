@@ -10,7 +10,7 @@ public class BestiaryManager : MonoBehaviour
     public Image enemyIconDisplay; 
     public TextMeshProUGUI detailsHealth, detailsDamage;
     public Transform modelPreviewPanel; 
-    public GameObject detailsPanel; // Assign your DetailsPanel GameObject here
+    public GameObject detailsPanel; 
 
     void Start()
     {

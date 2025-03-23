@@ -13,24 +13,30 @@ public class Player : MonoBehaviour
     [Header("Player Health Settings")]
     public float maxHealth = 9f;
     public float playerHp = 9f;
-    public float invincibilityDuration = 1f; // i-frame duration
-    private bool isInvincible = false; // Tracks i-frame state
+    public float invincibilityDuration = 1f; 
+    private bool isInvincible = false; 
 
-    private MeshRenderer[] meshRenderers;  // Store all MeshRenderers of the player
-    private Color originalColor;  // Store the original material color for flashing effect
+    private MeshRenderer[] meshRenderers; 
+    private Color originalColor;  
+    
+    public ScreenShake screenShake;
 
     void Awake()
     {
         if (instance == null)
             instance = this;
 
-      
         meshRenderers = GetComponentsInChildren<MeshRenderer>();  
-        
+
         if (meshRenderers.Length > 0)
         {
             originalColor = meshRenderers[0].material.color;
         }
+    }
+
+    void Start()
+    {
+        screenShake = Camera.main.GetComponent<ScreenShake>();
     }
 
     void Update()
@@ -53,6 +59,7 @@ public class Player : MonoBehaviour
         if (!isInvincible && other.CompareTag("Enemy"))
         {
             TakeDamage(1f);
+            screenShake.Shake(0.1f, 0.3f); 
         }
     }
 
@@ -101,4 +108,3 @@ public class Player : MonoBehaviour
         isInvincible = false;
     }
 }
-

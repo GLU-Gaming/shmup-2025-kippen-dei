@@ -126,4 +126,5 @@ MonoBehaviour:
   lifeTime: 5
   cooldownTime: 0.3
   initialDirection: {x: -160, y: 0, z: 0}
+  screenShake: {fileID: 0}
   direction: {x: -160, y: 0, z: 0}

@@ -6,7 +6,7 @@ public class BossTripleShot : MonoBehaviour
     public GameObject projectile; // Assign this in the Inspector with your projectile prefab
     public Transform shootPoint; // The spawn point for projectiles
     public float fireTimer; // Cooldown tracker
-    public float fireRate = 1.5f; // How often is the boss shooting?
+    public float fireRate = 1.3f; // How often is the boss shooting?
     void Update()
     {
         Timer();

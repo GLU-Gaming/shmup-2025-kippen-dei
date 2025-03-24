@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
             // Trigger screen shake when hitting an enemy
             if (screenShake != null)
             {
-                screenShake.Shake(0.1f, 0.3f);  // Customize these values as needed
+                screenShake.Shake(0.05f, 0.3f);  // Customize these values as needed
             }
 
             Destroy(gameObject); // Destroy the projectile

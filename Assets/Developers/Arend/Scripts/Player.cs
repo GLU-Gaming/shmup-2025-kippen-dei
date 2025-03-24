@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         if (!isInvincible && other.CompareTag("Enemy"))
         {
             TakeDamage(1f);
-            screenShake.Shake(0.1f, 0.3f); 
+            screenShake.Shake(0.05f, 0.3f); 
         }
     }
 

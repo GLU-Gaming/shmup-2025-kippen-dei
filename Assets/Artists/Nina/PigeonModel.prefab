@@ -60,10 +60,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8261911071695844142, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8af7a5f3ba8e1f74cb13b00c03fcffde, type: 2}
+    - target: {fileID: -869724562558409329, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8af7a5f3ba8e1f74cb13b00c03fcffde, type: 2}
+    - target: {fileID: -58754342625537402, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8af7a5f3ba8e1f74cb13b00c03fcffde, type: 2}
     - target: {fileID: 919132149155446097, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
       propertyPath: m_Name
-      value: pigeonmodel2
+      value: PigeonModel
       objectReference: {fileID: 0}
+    - target: {fileID: 6039372718931296616, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8af7a5f3ba8e1f74cb13b00c03fcffde, type: 2}
+    - target: {fileID: 7303492029930191767, guid: 5587b11409772f44f91b9f579da6e0a1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8af7a5f3ba8e1f74cb13b00c03fcffde, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

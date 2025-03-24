@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
     }
 
     // Trigger screen shake when the projectile collides with an enemy
-    void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Enemy"))
         {

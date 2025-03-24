@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  speed: 3
+  speed: 6
   projectilePrefab: {fileID: 1910474528939034053, guid: f093139b32a29a740accfc8b5eeaa404, type: 3}
   firePoint: {fileID: 2882126751647116262}
   fireRate: 1.1

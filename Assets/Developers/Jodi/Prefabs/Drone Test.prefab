@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 559135754100004902}
   - component: {fileID: 3181909852221265631}
   - component: {fileID: 7221778992643872242}
-  - component: {fileID: 4718843680914064781}
+  - component: {fileID: 6701572156043370511}
   - component: {fileID: 2642647508564825482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Drone Test
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4288125518728434519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.57, y: 2.83, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 4.57, y: 7.23, z: 0}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7725098438266365808}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &3181909852221265631
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4718843680914064781
+--- !u!114 &6701572156043370511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,13 +98,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4288125518728434519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb6d0940da53cf468b8d3be8326359f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dd2c8391d1d3a8439f470fbc3ed5655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8649891718810925292, guid: d475bd5e8acf1e94882e7e0bf82d2321, type: 3}
+  speed: 5
+  minShootDelay: 0.5
+  maxShootDelay: 2
+  projectilePrefab: {fileID: 8649891718810925292, guid: d475bd5e8acf1e94882e7e0bf82d2321, type: 3}
   shootPoint: {fileID: 7725098438266365808}
-  fireTimer: 0
-  fireRate: 1.5
+  spreadAngle: 180
+  damage: 1
+  maxDownwardDistance: -2
+  minDownwardDistance: -2.5
 --- !u!65 &2642647508564825482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7725098438266365808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShootPoint Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,10 +155,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8813846974627768138}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 559135754100004902}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

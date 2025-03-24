@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class EnemyBaseProjectile : Projectile
 {
-    private Rigidbody _rb;
-
     protected override void Start()
     {
         base.Start();
-        _rb = GetComponent<Rigidbody>();
+        Destroy(GetComponent<Rigidbody>()); // Remove leftover Rigidbody
+    }
 
-        // Set velocity to the left direction the projectile is facing
-        _rb.linearVelocity = -transform.right * (speed * 2);
+    void Update()
+    {
+        // Move left based on the projectile's local rotation
+        transform.Translate(Vector3.right * (speed * 2 * Time.deltaTime));
     }
 
     void OnTriggerEnter(Collider other)
@@ -23,13 +24,12 @@ public class EnemyBaseProjectile : Projectile
                 playerComponent.TakeDamage(damage);
             }
 
-            // Trigger screen shake when hitting the player
             if (screenShake != null)
             {
-                screenShake.Shake(0.05f, 0.3f); // Customize these values as needed
+                screenShake.Shake(0.05f, 0.3f);
             }
 
-            Destroy(gameObject); // Destroy the projectile
+            Destroy(gameObject);
         }
     }
 }

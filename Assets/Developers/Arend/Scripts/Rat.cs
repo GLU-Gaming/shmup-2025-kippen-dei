@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ZigzagEnemyMovement : EnemyBase
+public class Rat : EnemyBase
 {
     [Header("Rat Movement Settings")]
     public float speed = 5f;        // Snelheid van de vijand

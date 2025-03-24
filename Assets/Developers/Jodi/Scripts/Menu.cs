@@ -14,6 +14,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Game"); 
     }
 
+    public void LoadBestiary()
+    {
+        SceneManager.LoadScene("Bestiary");
+    }
+
     // Method to quit the game
     public void QuitGame()
     {

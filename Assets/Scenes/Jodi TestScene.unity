@@ -710,26 +710,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &510528243 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4288125518728434519, guid: 603978e54913ae049b3241efce156453, type: 3}
-  m_PrefabInstance: {fileID: 1963723071}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &510528249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510528243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd2c8391d1d3a8439f470fbc3ed5655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  projectilePrefab: {fileID: 0}
-  shootDelay: 1
 --- !u!1 &668689546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEnemyPrefabs:
-  - {fileID: 4749233817498354254, guid: 3dfacc34e67f6604bbde1072fb5e4c49, type: 3}
+  - {fileID: 18238046583346905, guid: a3618442cf35ab44cbf62fb12cdb778b, type: 3}
   - {fileID: 6112105978182557502, guid: 3759d71cdd9ae8c46a3c9ffba7aa8170, type: 3}
   flyingSpawnLocations:
   - {fileID: 935332272}
@@ -1616,7 +1596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.76
+      value: 7.23
       objectReference: {fileID: 0}
     - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1654,13 +1634,132 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone Test
       objectReference: {fileID: 0}
+    - target: {fileID: 6701572156043370511, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: minYPosition
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4288125518728434519, guid: 603978e54913ae049b3241efce156453, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 510528249}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 603978e54913ae049b3241efce156453, type: 3}
+--- !u!1001 &1995374647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288125518728434519, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_Name
+      value: Drone Test (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701572156043370511, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: minYPosition
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 603978e54913ae049b3241efce156453, type: 3}
+--- !u!1001 &2039009903
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559135754100004902, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288125518728434519, guid: 603978e54913ae049b3241efce156453, type: 3}
+      propertyPath: m_Name
+      value: Drone Test (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 603978e54913ae049b3241efce156453, type: 3}
 --- !u!1 &2090625922
 GameObject:
@@ -1797,6 +1896,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 31cc9eb9c0d5cf74bbbf2601cad34e17, type: 2}
+    - target: {fileID: 4976120449224882275, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 8649891718810925292, guid: d05e8c17f0a02384da09665b0e5393aa, type: 3}
     - target: {fileID: 5024417039912200571, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1885,3 +1988,5 @@ SceneRoots:
   - {fileID: 1765499727}
   - {fileID: 1832425752}
   - {fileID: 1963723071}
+  - {fileID: 1995374647}
+  - {fileID: 2039009903}

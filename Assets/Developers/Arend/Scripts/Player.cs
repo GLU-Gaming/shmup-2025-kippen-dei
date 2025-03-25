@@ -24,10 +24,17 @@ public class Player : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        meshRenderers = GetComponentsInChildren<MeshRenderer>();  
-
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
         if (meshRenderers.Length > 0)
         {
             originalColor = meshRenderers[0].material.color;
@@ -37,6 +44,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         screenShake = Camera.main.GetComponent<ScreenShake>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Update()
@@ -54,7 +62,6 @@ public class Player : MonoBehaviour
         );
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (!isInvincible && other.CompareTag("Enemy"))
@@ -69,7 +76,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (isInvincible) return; // Prevent taking damage during i-frames
+        if (isInvincible) return;
 
         playerHp -= damage;
         if (playerHp <= 0)
@@ -85,6 +92,7 @@ public class Player : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died.");
+        Destroy(gameObject);
         SceneManager.LoadScene("GameOver");
     }
 
@@ -92,23 +100,36 @@ public class Player : MonoBehaviour
     {
         isInvincible = true;
         
-        float flashEndTime = Time.time + invincibilityDuration; // Set the time for invincibility to end
+        float flashEndTime = Time.time + invincibilityDuration;
         while (Time.time < flashEndTime)
         {
             foreach (MeshRenderer renderer in meshRenderers)
             {
-                renderer.material.color = Color.red;  // Change to red when hit
+                renderer.material.color = Color.red;
             }
             yield return new WaitForSeconds(0.1f);
 
-            // Revert to original color
             foreach (MeshRenderer renderer in meshRenderers)
             {
-                renderer.material.color = originalColor;  // Revert color
+                renderer.material.color = originalColor;
             }
             yield return new WaitForSeconds(0.1f);
         }
 
         isInvincible = false;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "BossBattle")
+        {
+            transform.position = Vector3.zero;
+            GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        }
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

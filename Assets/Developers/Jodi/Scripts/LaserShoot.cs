@@ -51,4 +51,13 @@ public class LaserShoot : MonoBehaviour
             yield return new WaitForSeconds(laserDuration + chargeTime);
         }
     }
+    public void AbortAttack()
+    {
+        StopAllCoroutines();
+        laserBeam.SetActive(false);
+        chargeEffect.StopCharge();
+        isCharging = false;
+        isFiring = false;
+    }
+
 }

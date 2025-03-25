@@ -56,12 +56,12 @@ public class BossController : MonoBehaviour
 
     void CheckPhase()
     {
-        if(currentHealth < maxHealth * 0.5f && currentPhase == 1)
+        if(currentHealth < maxHealth * 0.75f && currentPhase == 1)
         {
             currentPhase = 2;
             Debug.Log("Entering Phase 2!");
         }
-        else if(currentHealth < maxHealth * 0.25f && currentPhase == 2)
+        else if(currentHealth < maxHealth * 0.5f && currentPhase == 2)
         {
             currentPhase = 3;
             Debug.Log("Final Phase!");
@@ -118,6 +118,7 @@ public class BossController : MonoBehaviour
         
         if (currentHealth <= 0)
         {
+            laserShooter.AbortAttack();
             Destroy(gameObject); 
         }
     }

@@ -5,17 +5,16 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     [Header("Score Settings")]
-    public int score = 0; // Score points
-    public TextMeshProUGUI scoreText; // UI Text to display the score
-    public string bossSceneName = "BossBattle"; // Name of the boss scene
-    public int bossScoreThreshold = 1000; // Score required to trigger boss battle
+    public int score = 0;
+    public TextMeshProUGUI scoreText;
+    public string bossSceneName = "BossBattle";
+    public int bossScoreThreshold = 1000;
 
     void Start()
     {
         UpdateScoreUI();
     }
 
-    // Method to add score
     public void AddScore(int points)
     {
         score += points;
@@ -23,7 +22,6 @@ public class ScoreManager : MonoBehaviour
         CheckBossBattle();
     }
 
-    // Method to update the score UI
     private void UpdateScoreUI()
     {
         if (scoreText != null)
@@ -36,7 +34,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (score >= bossScoreThreshold)
         {
-            SceneManager.LoadScene("BossBattle");
+            SceneManager.LoadScene(bossSceneName);
         }
     }
 }

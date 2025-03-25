@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ChargeController : MonoBehaviour
 {
-    public float chargeTime = 2f; // Time to charge the laser
-    public float maxScale = 2f; // How big the charge effect gets
+    public float chargeTime = 2f;
+    public float maxScale = 2f;
 
     private Vector3 originalScale;
     private float currentCharge = 0f;
@@ -11,12 +11,11 @@ public class ChargeController : MonoBehaviour
     void Start()
     {
         originalScale = transform.localScale;
-        gameObject.SetActive(false); 
+        gameObject.SetActive(false);
     }
 
     void Update()
     {
-        // Scale up the charge effect over time
         if (currentCharge < chargeTime)
         {
             currentCharge += Time.deltaTime;

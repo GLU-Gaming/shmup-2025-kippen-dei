@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEnemyPrefabs:
-  - {fileID: 4749233817498354254, guid: 3dfacc34e67f6604bbde1072fb5e4c49, type: 3}
+  - {fileID: 18238046583346905, guid: a3618442cf35ab44cbf62fb12cdb778b, type: 3}
   - {fileID: 6112105978182557502, guid: 3759d71cdd9ae8c46a3c9ffba7aa8170, type: 3}
   flyingSpawnLocations:
   - {fileID: 1648085564}

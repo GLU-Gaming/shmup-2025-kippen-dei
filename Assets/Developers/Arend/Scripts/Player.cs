@@ -49,10 +49,11 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, -maxX, maxX),
-            Mathf.Clamp(transform.position.y, -maxY, maxY),
+            Mathf.Clamp(transform.position.y, -maxY * 0.5f, maxY), 
             transform.position.z
         );
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

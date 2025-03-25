@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bestiary.unity
     guid: 04a411c0042a6a34c926eead2c70031b
+  - enabled: 1
+    path: Assets/Scenes/BossBattle.unity
+    guid: 62d87cf938b326c46bc1bee4ea795445
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

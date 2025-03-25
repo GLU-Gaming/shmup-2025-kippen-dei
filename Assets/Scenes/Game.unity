@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 1106175301}
+  bossSceneName: BossBattle
+  bossScoreThreshold: 1000
 --- !u!114 &69522354
 MonoBehaviour:
   m_ObjectHideFlags: 0

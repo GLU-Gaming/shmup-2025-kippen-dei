@@ -16,10 +16,9 @@ public class Projectile : MonoBehaviour
     protected virtual void Start()
     {
         Destroy(gameObject, lifeTime);
-        initialDirection = transform.right; // Store the initial direction
-        initialRotation = transform.rotation; // Store the initial rotation
+        initialDirection = transform.right;
+        initialRotation = transform.rotation;
 
-        
         if (screenShake == null)
         {
             screenShake = FindObjectOfType<ScreenShake>();
@@ -33,22 +32,20 @@ public class Projectile : MonoBehaviour
 
     protected virtual void Move()
     {
-        transform.rotation = initialRotation; // Ensure rotation remains constant
+        transform.rotation = initialRotation;
         transform.Translate(initialDirection * (speed * Time.deltaTime), Space.World);
     }
 
-    // Trigger screen shake when the projectile collides with an enemy
     protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Enemy"))
         {
-            // Trigger screen shake when hitting an enemy
             if (screenShake != null)
             {
-                screenShake.Shake(0.05f, 0.3f);  // Customize these values as needed
+                screenShake.Shake();  
             }
 
-            Destroy(gameObject); // Destroy the projectile
+            Destroy(gameObject);
         }
     }
 }

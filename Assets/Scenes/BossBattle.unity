@@ -439,9 +439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c770caa152421e46a5b6182590adb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDistance: 5
-  dashSpeed: 20
-  playerTransform: {fileID: 0}
+  dashDistance: 18
+  dashSpeed: 15
+  DashTransform: {fileID: 1646080301}
 --- !u!4 &266793111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
@@ -1679,6 +1679,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1646080300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646080301}
+  m_Layer: 0
+  m_Name: DashLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1646080301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646080300}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.37, y: -0.6, z: 0}
+  m_LocalScale: {x: 1.85, y: 1.85, z: 1.85}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1736320988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,3 +2394,4 @@ SceneRoots:
   - {fileID: 329146221}
   - {fileID: 266793104}
   - {fileID: 1260537567}
+  - {fileID: 1646080301}

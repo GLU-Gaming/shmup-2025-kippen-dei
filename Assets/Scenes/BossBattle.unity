@@ -439,9 +439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c770caa152421e46a5b6182590adb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashDistance: 5
   dashSpeed: 20
-  dashPoint: {x: -7, y: -1.4, z: 0}
-  isDashing: 0
+  playerTransform: {fileID: 0}
 --- !u!4 &266793111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}

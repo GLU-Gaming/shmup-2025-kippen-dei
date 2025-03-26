@@ -1,49 +1,47 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-
-public class DashAttack: MonoBehaviour
+public class DashAttack : MonoBehaviour
 {
-    [Header("DashAttack Settings")]
-    public float dashSpeed;
-    public Vector3 dashPoint;
-    private Vector3 startPosition;
+    [Header("Dash Settings")]
+    public float dashDistance = 5f;
+    public float dashSpeed = 15f;
+    public Transform DashTransform; 
 
-    public bool isDashing = false;
+    private Vector3 originalPosition;
+    private bool isDashing = false;
 
-    private void Start()
+    public IEnumerator Dash()
     {
-        startPosition = transform.position;
-    }
-    public void Dash()
-    {
-        if (!isDashing)
-        {
-            StartCoroutine(StartDash());
-        }
+        if (isDashing || DashTransform == null) yield break;
         
-
-    }
-    IEnumerator StartDash()
-    {
         isDashing = true;
+        originalPosition = transform.position;
 
-        // Beweeg naar dashPoint
-        while (Vector3.Distance(transform.position, dashPoint) > 0.1f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, dashPoint, dashSpeed * Time.deltaTime);
-            yield return null; // Wacht tot de volgende frame
-        }
+        // Calculate dash direction toward player
+        Vector3 dashDirection = (DashTransform.position - transform.position).normalized;
+        Vector3 targetPosition = originalPosition + dashDirection * dashDistance;
 
-        yield return new WaitForSeconds(0.2f); // Eventueel een korte pauze na de dash
+        // Dash forward
+        yield return StartCoroutine(MoveToPosition(targetPosition));
 
-        // Beweeg terug naar startpositie
-        while (Vector3.Distance(transform.position, startPosition) > 0.1f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition, dashSpeed * Time.deltaTime);
-            yield return null;
-        }
+        // Return to original position
+        yield return StartCoroutine(MoveToPosition(originalPosition));
 
         isDashing = false;
+    }
+
+    IEnumerator MoveToPosition(Vector3 target)
+    {
+        while (Vector3.Distance(transform.position, target) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                target,
+                dashSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
+        transform.position = target; // Snap to final position
     }
 }

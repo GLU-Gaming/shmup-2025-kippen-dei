@@ -21,31 +21,39 @@ public class BossController : MonoBehaviour
     public LaserShoot laserShooter;
     public DashAttack DashAttack;
 
-    
+    bool isAttacking = false;
 
     void Start()
     {
         currentHealth = maxHealth;
-        updateHealthBar();
+        UpdateHealthBar();
         attackTimer = timeBetweenAttacks;
     }
 
     void Update()
     {
-        attackTimer -= Time.deltaTime;
-        updateHealthBar();
-        
-        if(attackTimer <= 0)
+        if (!isAttacking)
+            attackTimer -= Time.deltaTime;
+
+        UpdateHealthBar();
+
+        if (attackTimer <= 0 && !isAttacking)
         {
-            ChooseAttack();
             attackTimer = timeBetweenAttacks;
+            StartCoroutine(PerformAttack());
         }
-        
+
         CheckPhase();
     }
-    
 
-    void ChooseAttack()
+    IEnumerator PerformAttack()
+    {
+        isAttacking = true;
+        yield return StartCoroutine(ChooseAttack());
+        isAttacking = false;
+    }
+
+    IEnumerator ChooseAttack()
     {
         switch(currentPhase)
         {
@@ -53,22 +61,22 @@ public class BossController : MonoBehaviour
                 Phase1Attacks();
                 break;
             case 2:
-                Phase2Attacks();
+                yield return StartCoroutine(Phase2Attacks());
                 break;
             case 3:
-                Phase3Attacks();
+                yield return StartCoroutine(Phase3Attacks());
                 break;
         }
     }
 
     void CheckPhase()
     {
-        if(currentHealth < maxHealth * 0.75f && currentPhase == 1)
+        if (currentHealth < maxHealth * 0.75f && currentPhase == 1)
         {
             currentPhase = 2;
             Debug.Log("Entering Phase 2!");
         }
-        else if(currentHealth < maxHealth * 0.5f && currentPhase == 2)
+        else if (currentHealth < maxHealth * 0.5f && currentPhase == 2)
         {
             currentPhase = 3;
             Debug.Log("Final Phase!");
@@ -77,33 +85,29 @@ public class BossController : MonoBehaviour
 
     void Phase1Attacks()
     {
-        if(Random.value > 0.5f)
-        {
+        if (Random.value > 0.5f)
             droneSpawner.SpawnSingleDrone();
-        }
         else
-        {
             laserShooter.FireLaser();
-        }
     }
 
-    void Phase2Attacks()
+    IEnumerator Phase2Attacks()
     {
         if (Random.value > 0.7f)
         {
-            DashAttack.Dash();
+            laserShooter.AbortAttack();
+            yield return StartCoroutine(DashAttack.Dash());
         }
         else
         {
             droneSpawner.SpawnDroneSwarm(3);
             laserShooter.FireLaser();
         }
-       
     }
 
-    void Phase3Attacks()
+    IEnumerator Phase3Attacks()
     {
-        StartCoroutine(FinalPhaseAttack());
+        yield return StartCoroutine(FinalPhaseAttack());
     }
 
     IEnumerator FinalPhaseAttack()
@@ -112,26 +116,24 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         droneSpawner.SpawnDroneSwarm(5);
         yield return new WaitForSeconds(1f);
-        if(Random.value > 0.5f)
+        if (Random.value > 0.5f)
         {
-            DashAttack.Dash();
+            laserShooter.AbortAttack();
+            yield return StartCoroutine(DashAttack.Dash());
         }
-            
     }
-    
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Bullet"))
         {
             Projectile projectile = collision.collider.GetComponent<Projectile>();
             if (projectile != null)
-            {
                 TakeDamage(projectile.damage);
-            }
         }
     }
 
-    void updateHealthBar()
+    void UpdateHealthBar()
     {
         healthBarFill.fillAmount = currentHealth / maxHealth;
     }
@@ -139,14 +141,13 @@ public class BossController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        updateHealthBar();
-        
+        UpdateHealthBar();
         Debug.Log($"Boss took {damage} damage! Remaining health: {currentHealth}");
-        
+
         if (currentHealth <= 0)
         {
             laserShooter.AbortAttack();
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 }

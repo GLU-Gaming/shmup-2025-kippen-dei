@@ -3,7 +3,7 @@ using UnityEngine;
 public class LoopingBG : MonoBehaviour
 {
     public float speed = 2f; // Speed of movement
-    public float offset = 0.01f; // Adjustable offset to prevent gaps
+    public float offset = 0.01f; // Small offset to prevent gaps
     public Transform[] backgrounds; // Assign background objects in the Inspector
     private float spriteWidth; // Width of the sprite
 
@@ -20,8 +20,10 @@ public class LoopingBG : MonoBehaviour
         {
             bg.Translate(Vector2.left * (speed * Time.deltaTime));
 
-            // Check if the background has completely moved out of view
-            if (bg.position.x <= -spriteWidth - offset)
+            // Adjust loop threshold to reposition before a gap appears
+            float loopThreshold = -spriteWidth - offset;
+
+            if (bg.position.x <= loopThreshold)
             {
                 // Find the rightmost background
                 Transform rightMost = backgrounds[0];
@@ -31,8 +33,8 @@ public class LoopingBG : MonoBehaviour
                         rightMost = other;
                 }
 
-                // Reposition the background to the rightmost position
-                bg.position = new Vector3(rightMost.position.x + spriteWidth - offset, bg.position.y, bg.position.z);
+                // Reposition background to the exact right of the rightmost one
+                bg.position = new Vector3(rightMost.position.x + spriteWidth, bg.position.y, bg.position.z);
             }
         }
     }

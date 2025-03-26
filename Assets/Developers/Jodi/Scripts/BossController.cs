@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
     [Header("Health Settings")]
     public float maxHealth = 1000;
     float currentHealth;
+    public Image healthBarFill;
 
     [Header("Attack Settings")]
     public float timeBetweenAttacks = 5f;
@@ -24,12 +26,14 @@ public class BossController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        updateHealthBar();
         attackTimer = timeBetweenAttacks;
     }
 
     void Update()
     {
         attackTimer -= Time.deltaTime;
+        updateHealthBar();
         
         if(attackTimer <= 0)
         {
@@ -127,9 +131,15 @@ public class BossController : MonoBehaviour
         }
     }
 
+    void updateHealthBar()
+    {
+        healthBarFill.fillAmount = currentHealth / maxHealth;
+    }
+
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage; 
+        currentHealth -= damage;
+        updateHealthBar();
         
         Debug.Log($"Boss took {damage} damage! Remaining health: {currentHealth}");
         

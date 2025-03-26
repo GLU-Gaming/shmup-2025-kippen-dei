@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceffeef66f637ab47a7cb9236df90dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20000
+  maxHealth: 15000
   timeBetweenAttacks: 4
   currentPhase: 1
   droneSpawner: {fileID: 1337458847}

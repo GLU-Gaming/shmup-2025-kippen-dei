@@ -89,7 +89,7 @@ public class BossController : MonoBehaviour
 
     void Phase2Attacks()
     {
-        if (Random.value > 0.8f)
+        if (Random.value > 0.7f)
         {
             DashAttack.Dash();
         }
@@ -112,7 +112,7 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         droneSpawner.SpawnDroneSwarm(5);
         yield return new WaitForSeconds(1f);
-        if(Random.value > 0.6f)
+        if(Random.value > 0.5f)
         {
             DashAttack.Dash();
         }

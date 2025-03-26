@@ -17,6 +17,9 @@ public class BossController : MonoBehaviour
     [Header("Attack Systems")]
     public SpawnDrones droneSpawner;
     public LaserShoot laserShooter;
+    public DashAttack DashAttack;
+
+    
 
     void Start()
     {
@@ -82,8 +85,16 @@ public class BossController : MonoBehaviour
 
     void Phase2Attacks()
     {
-        droneSpawner.SpawnDroneSwarm(3);
-        laserShooter.FireLaser();
+        if (Random.value > 0.8f)
+        {
+            DashAttack.Dash();
+        }
+        else
+        {
+            droneSpawner.SpawnDroneSwarm(3);
+            laserShooter.FireLaser();
+        }
+       
     }
 
     void Phase3Attacks()
@@ -96,6 +107,12 @@ public class BossController : MonoBehaviour
         laserShooter.FireContinuousBeam(3f);
         yield return new WaitForSeconds(1f);
         droneSpawner.SpawnDroneSwarm(5);
+        yield return new WaitForSeconds(1f);
+        if(Random.value > 0.6f)
+        {
+            DashAttack.Dash();
+        }
+            
     }
     
     void OnCollisionEnter(Collision collision)

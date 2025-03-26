@@ -786,10 +786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c770caa152421e46a5b6182590adb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  dashSpeed: 10
-  dashPoint: {x: -10, y: 0, z: 0}
-  startPostion: {x: 0, y: 0, z: 0}
+  dashSpeed: 6
+  dashPoint: {x: 10, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

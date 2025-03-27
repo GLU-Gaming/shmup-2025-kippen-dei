@@ -8,7 +8,6 @@ public class EnemyProjectile : Projectile
     {
         base.Start();
         
-        
         if (direction != Vector3.zero)
         {
             initialDirection = direction.normalized;

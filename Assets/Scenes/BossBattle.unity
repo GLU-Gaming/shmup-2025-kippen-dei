@@ -1739,7 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6a6096f38d66048bfcbf7469ab47fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPrefab: {fileID: 5546506825689751461, guid: 470eef69599bb834fb40484e8e440a9f, type: 3}
+  healthPrefabs: []
   healthContainer: {fileID: 627427827}
 --- !u!4 &1736320990
 Transform:

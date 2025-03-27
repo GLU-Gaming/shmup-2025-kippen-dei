@@ -21,7 +21,6 @@ public class PlayerHealthUI : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
     private void Start()
     {
         CreateHealthUI();

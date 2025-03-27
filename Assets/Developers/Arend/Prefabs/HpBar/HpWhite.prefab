@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3538290651487572072}
   - component: {fileID: 2751064799586884707}
   m_Layer: 5
-  m_Name: HP
+  m_Name: HpWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 5546506825689751461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
-  m_LocalScale: {x: 0.78073, y: 0.4, z: 0.78073}
+  m_LocalScale: {x: 1, y: 0.5, z: 0.78073}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 65ed34f87eed02841b6c5dc371c3d32a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

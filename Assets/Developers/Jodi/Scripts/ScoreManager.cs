@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI scoreText;
     public string bossSceneName = "BossBattle";
-    public int bossScoreThreshold = 1000;
+    public int bossScoreThreshold = 750;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score.ToString();
+            scoreText.text = score.ToString("D4");
         }
     }
     

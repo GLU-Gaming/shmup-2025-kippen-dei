@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyingEnemyPrefabs:
   - {fileID: 18238046583346905, guid: a3618442cf35ab44cbf62fb12cdb778b, type: 3}
-  - {fileID: 6112105978182557502, guid: 3759d71cdd9ae8c46a3c9ffba7aa8170, type: 3}
+  - {fileID: 6803805810686399798, guid: 3ab0a3b7809813643bba3a05979d6cf2, type: 3}
   flyingSpawnLocations:
   - {fileID: 1648085564}
   - {fileID: 1524361146}
@@ -2019,63 +2019,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7895188193685817489
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20.382399
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.757097
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.00000025284052
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0000029504295
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 67322929322470755, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 839074107087747033, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
-      propertyPath: m_Name
-      value: Robo Rat
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cc9b0169d1511924dbbda39a728a5998, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2094,4 +2037,3 @@ SceneRoots:
   - {fileID: 2143690407}
   - {fileID: 136282673}
   - {fileID: 582015570}
-  - {fileID: 7895188193685817489}

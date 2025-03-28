@@ -9,23 +9,23 @@ public class LoopingBG : MonoBehaviour
 
     private void Start()
     {
-        // Get sprite width
         spriteWidth = backgrounds[0].GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
     private void Update()
     {
-        // Move backgrounds
         foreach (Transform bg in backgrounds)
         {
             bg.Translate(Vector2.left * (speed * Time.deltaTime));
-
-            // Adjust loop threshold to reposition before a gap appears
+        }
+        
+        foreach (Transform bg in backgrounds)
+        {
             float loopThreshold = -spriteWidth - offset;
 
             if (bg.position.x <= loopThreshold)
             {
-                // Find the rightmost background
+                // Find the current rightmost background
                 Transform rightMost = backgrounds[0];
                 foreach (Transform other in backgrounds)
                 {
@@ -33,8 +33,9 @@ public class LoopingBG : MonoBehaviour
                         rightMost = other;
                 }
 
-                // Reposition background to the exact right of the rightmost one
-                bg.position = new Vector3(rightMost.position.x + spriteWidth, bg.position.y, bg.position.z);
+                // Reposition to the right of the rightmost background
+                Vector3 newPosition = new Vector3(rightMost.position.x + spriteWidth, bg.position.y, bg.position.z);
+                bg.position = newPosition;
             }
         }
     }

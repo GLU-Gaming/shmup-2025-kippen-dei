@@ -174,7 +174,7 @@ MonoBehaviour:
   - {fileID: 2143690407}
   flyingSpawnProbability: 0.7
   groundEnemyPrefabs:
-  - {fileID: 4460777934629397121, guid: b40d3fc526ffafe41ad3021b6be09be9, type: 3}
+  - {fileID: 8255854276439557406, guid: bcbbcb0280497274d9df80e8563f98ba, type: 3}
   groundSpawnLocation: {fileID: 314485774}
   minSpawnInterval: 1
   maxSpawnInterval: 2
@@ -407,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 314485771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: -2.81, z: 0}
+  m_LocalPosition: {x: 9.5, y: -3.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

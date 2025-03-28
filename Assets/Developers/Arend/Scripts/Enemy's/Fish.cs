@@ -4,15 +4,20 @@ public class Fish : EnemyBase
 {
     [Header("Fish Movement Settings")]
     public float speed = 2f;
+    public float rotationSpeed = 5f;
     private bool movingLeft = true;
-    private Quaternion targetRotation;
-    public float rotationSpeed = 5f; // Hoe snel de rotatie gebeurt
+    private Quaternion targetRotation; 
 
     [Header("Shooting Settings")]
     public GameObject projectilePrefab;
     public Transform firePoint;
-    public float fireRate = 1.5f;  // Hoe vaak wordt er geschoten?
+    public float fireRate = 1.5f;
     private float fireTimer;
+
+    void Start()
+    {
+        targetRotation = Quaternion.Euler(0, 0, 0);
+    }
 
     void Update()
     {
@@ -23,21 +28,31 @@ public class Fish : EnemyBase
 
     public override void Move()
     {
-        transform.Translate(Vector2.right * (movingLeft ? -speed : speed) * Time.deltaTime);
+        // Move left or right based on the direction
+        transform.Translate((movingLeft ? Vector3.left : Vector3.right) * (speed * Time.deltaTime), Space.World);
 
-        if (transform.position.x < -10)
+        // Get screen edges
+        Vector3 leftScreenEdge = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.5f, 0));
+        Vector3 rightScreenEdge = Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, 0));
+
+        // If it reaches the left side, set target rotation and flip direction
+        if (movingLeft && transform.position.x < leftScreenEdge.x - 7)
         {
-            movingLeft = !movingLeft;
-            targetRotation = Quaternion.Euler(0, -180, 0); // Kijk naar rechts
+            movingLeft = false;
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-        if (transform.position.x > 11)
+
+        if (!movingLeft && transform.position.x > rightScreenEdge.x + 10)
         {
             Destroy(gameObject);
         }
+
+
     }
 
     private void RotateSmoothly()
     {
+        // Smoothly rotate towards the target rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
@@ -46,7 +61,7 @@ public class Fish : EnemyBase
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireRate)
         {
-            fireTimer = 0f; // Reset de timer
+            fireTimer = 0f;
             FireProjectile();
         }
     }
@@ -55,7 +70,7 @@ public class Fish : EnemyBase
     {
         if (projectilePrefab != null && firePoint != null)
         {
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         }
     }
 }

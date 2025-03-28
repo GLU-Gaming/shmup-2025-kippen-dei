@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5381649c4e518d546af0c752ecb66149, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 5381649c4e518d546af0c752ecb66149, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068

@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private bool isInvincible = false; 
 
     private MeshRenderer[] meshRenderers; 
-    private Color originalColor;  
+    private Color[] originalColors; // Store each renderer's original color
     
     public ScreenShake screenShake;
 
@@ -35,9 +35,10 @@ public class Player : MonoBehaviour
         }
 
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
-        if (meshRenderers.Length > 0)
+        originalColors = new Color[meshRenderers.Length];
+        for (int i = 0; i < meshRenderers.Length; i++)
         {
-            originalColor = meshRenderers[0].material.color;
+            originalColors[i] = meshRenderers[i].material.color; // Store each color
         }
     }
 
@@ -109,9 +110,10 @@ public class Player : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
 
-            foreach (MeshRenderer renderer in meshRenderers)
+            // Reset each renderer to its original color
+            for (int i = 0; i < meshRenderers.Length; i++)
             {
-                renderer.material.color = originalColor;
+                meshRenderers[i].material.color = originalColors[i];
             }
             yield return new WaitForSeconds(0.1f);
         }

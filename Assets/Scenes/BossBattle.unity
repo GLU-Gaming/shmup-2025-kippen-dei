@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: -9209664434638775761, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: -8679921383154817045, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.85
@@ -302,23 +302,23 @@ PrefabInstance:
     - target: {fileID: -8649818636325084589, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: -7967355232114221968, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: -4037798191895152097, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: -3712181942456804278, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: -2461979658670995980, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6fef3bb193de1724c91a752828a76974, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: 919132149155446097, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -330,19 +330,19 @@ PrefabInstance:
     - target: {fileID: 3538320216416773867, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: 6164996480583612547, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6fef3bb193de1724c91a752828a76974, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: 6310259898749835713, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8297505943b1d944aaa05676838db38c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     - target: {fileID: 8449996119470504636, guid: 4bf37a7be06f03446a7bbd8cd987ba07, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6fef3bb193de1724c91a752828a76974, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dbe6162ec00c7b4ca7d519f46a2b66c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1092,8 +1092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.66069746, a: 1}
+  m_Material: {fileID: 2100000, guid: 6be3469709c0e894793748283cb4772a, type: 2}
+  m_Color: {r: 1, g: 0.13013865, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

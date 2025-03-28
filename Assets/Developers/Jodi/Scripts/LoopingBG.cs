@@ -3,7 +3,7 @@ using UnityEngine;
 public class LoopingBG : MonoBehaviour
 {
     public float speed = 2f; // Speed of movement
-    public float offset = 0.01f; // Small offset to prevent gaps
+    public float offset = 1f; // Small offset to prevent gaps
     public Transform[] backgrounds; // Assign background objects in the Inspector
     private float spriteWidth; // Width of the sprite
 

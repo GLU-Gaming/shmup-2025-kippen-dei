@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class LaserShoot : MonoBehaviour
+public class LaserShootAbove : MonoBehaviour
 {
     [Header("Laser Settings")]
     public List<GameObject> laserBeams;

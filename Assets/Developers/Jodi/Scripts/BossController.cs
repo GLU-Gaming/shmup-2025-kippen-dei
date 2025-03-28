@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System.Threading;
 
 public class BossController : MonoBehaviour
 {
@@ -20,6 +19,7 @@ public class BossController : MonoBehaviour
     [Header("Attack Systems")]
     public SpawnDrones droneSpawner;
     public LaserShoot laserShooter;
+    public LaserShootAbove laserShooterAbove; // Added LaserShootAbove
     public DashAttack DashAttack;
 
     bool isAttacking = false;
@@ -103,6 +103,7 @@ public class BossController : MonoBehaviour
         {
             droneSpawner.SpawnDroneSwarm(3);
             laserShooter.FireLaser();
+            laserShooterAbove.FireLaser(); 
         }
     }
 
@@ -114,12 +115,14 @@ public class BossController : MonoBehaviour
     IEnumerator FinalPhaseAttack()
     {
         laserShooter.FireContinuousBeam(3f);
+        laserShooterAbove.FireContinuousBeam(3f); 
         yield return new WaitForSeconds(1f);
         droneSpawner.SpawnDroneSwarm(5);
         yield return new WaitForSeconds(1f);
         if (Random.value > 0.5f)
         {
             laserShooter.AbortAttack();
+            laserShooterAbove.AbortAttack(); 
             yield return StartCoroutine(DashAttack.Dash());
         }
     }
@@ -148,6 +151,7 @@ public class BossController : MonoBehaviour
         if (currentHealth <= 0)
         {
             laserShooter.AbortAttack();
+            laserShooterAbove.AbortAttack(); 
             Destroy(gameObject);
         }
     }

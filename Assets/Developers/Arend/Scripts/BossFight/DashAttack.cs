@@ -6,7 +6,7 @@ public class DashAttack : MonoBehaviour
     [Header("Dash Settings")]
     public float dashDistance = 5f;
     public float dashSpeed = 15f;
-    public Transform DashTransform; 
+    public Transform DashTransform;
 
     private Vector3 originalPosition;
     private bool isDashing = false;
@@ -14,7 +14,7 @@ public class DashAttack : MonoBehaviour
     public IEnumerator Dash()
     {
         if (isDashing || DashTransform == null) yield break;
-        
+
         isDashing = true;
         originalPosition = transform.position;
 
@@ -33,7 +33,7 @@ public class DashAttack : MonoBehaviour
 
     IEnumerator MoveToPosition(Vector3 target)
     {
-        while (Vector3.Distance(transform.position, target) > 0.1f)
+        while (Vector3.Distance(transform.position, target) > 0.01f) // Reduced distance threshold
         {
             transform.position = Vector3.MoveTowards(
                 transform.position,

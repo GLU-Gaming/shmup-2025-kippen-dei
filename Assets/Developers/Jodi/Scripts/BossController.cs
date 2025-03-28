@@ -91,13 +91,14 @@ public class BossController : MonoBehaviour
         else
             laserShooter.FireLaser();
     }
-
+    
     IEnumerator Phase2Attacks()
     {
         if (Random.value > 0.7f)
         {
             laserShooter.AbortAttack();
             yield return StartCoroutine(DashAttack.Dash());
+            attackTimer = timeBetweenAttacks * 0.5f; // Reduce cooldown ONLY after dash
         }
         else if (Random.value > 0.7f)
         {
@@ -127,6 +128,7 @@ public class BossController : MonoBehaviour
             laserShooter.AbortAttack();
             laserShooterAbove.AbortAttack(); 
             yield return StartCoroutine(DashAttack.Dash());
+            attackTimer = timeBetweenAttacks * 0.4f; // Even shorter cooldown in final phase
         }
     }
 

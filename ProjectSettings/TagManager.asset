@@ -40,15 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 3385791361
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Kak
-    uniqueID: 3385791361
-    locked: 0
   m_RenderingLayers:
   - Default
-  - Light Layer 1
+  - Ball
   - Light Layer 2
   - Light Layer 3
   - Light Layer 4

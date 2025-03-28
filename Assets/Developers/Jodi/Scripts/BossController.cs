@@ -99,7 +99,7 @@ public class BossController : MonoBehaviour
             laserShooter.AbortAttack();
             yield return StartCoroutine(DashAttack.Dash());
         }
-        else if (Random.value > 0.5f)
+        else if (Random.value > 0.7f)
         {
             laserShooterAbove.FireLaser();
         }

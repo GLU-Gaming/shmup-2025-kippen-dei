@@ -19,7 +19,8 @@ public class BossController : MonoBehaviour
     [Header("Attack Systems")]
     public SpawnDrones droneSpawner;
     public LaserShoot laserShooter;
-    public LaserShootAbove laserShooterAbove; // Added LaserShootAbove
+    public LaserShootAbove laserShooterAbove; 
+    public LaserShootAbove2 laserShooterAbove2; 
     public DashAttack DashAttack;
 
     bool isAttacking = false;
@@ -103,6 +104,10 @@ public class BossController : MonoBehaviour
         else if (Random.value > 0.7f)
         {
             laserShooterAbove.FireLaser();
+        }
+        else if (Random.value > 0.7f)
+        {
+            laserShooterAbove2.FireLaser();
         }
         else
         {

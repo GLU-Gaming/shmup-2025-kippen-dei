@@ -13,10 +13,11 @@ public class BossController : MonoBehaviour
     [Header("Movement Settings")]
     public float verticalSpeed = 2f;
     public float verticalAmplitude = 2f;
-    public float attackMoveSlowMultiplier = 0.5f;
+    public float dashReturnSpeed = 10f;
     private float initialY;
-    private float baseVerticalSpeed;
+    private float phaseOffset;
     private const float TARGET_X_POSITION = 8f;
+    private bool isDashing = false;
 
     [Header("Attack Settings")]
     public float timeBetweenAttacks = 5f;
@@ -41,8 +42,8 @@ public class BossController : MonoBehaviour
         initialY = transform.position.y;
         attackTimer = timeBetweenAttacks;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.position = new Vector3(TARGET_X_POSITION, initialY, transform.position.z);
-        baseVerticalSpeed = verticalSpeed;
+        phaseOffset = 0f;
+        LockXPosition();
     }
 
     void Update()
@@ -53,11 +54,27 @@ public class BossController : MonoBehaviour
         CheckPhase();
     }
 
+    void LockXPosition()
+    {
+        transform.position = new Vector3(TARGET_X_POSITION, transform.position.y, transform.position.z);
+    }
+
     void HandleMovement()
     {
-        // Vertical sine wave movement
-        float newY = initialY + Mathf.Sin(Time.time * verticalSpeed) * verticalAmplitude;
-        transform.position = new Vector3(TARGET_X_POSITION, newY, transform.position.z);
+        phaseOffset += verticalSpeed * Time.deltaTime;
+        float newY = initialY + Mathf.Sin(phaseOffset) * verticalAmplitude;
+
+        if (!isDashing)
+        {
+            // Maintain X position at 8 with smooth return
+            float currentX = Mathf.MoveTowards(transform.position.x, TARGET_X_POSITION, dashReturnSpeed * Time.deltaTime);
+            transform.position = new Vector3(currentX, newY, transform.position.z);
+        }
+        else
+        {
+            // Only update Y position during dash
+            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        }
 
         // Face player direction
         if(player != null)
@@ -83,8 +100,7 @@ public class BossController : MonoBehaviour
     IEnumerator AttackRoutine()
     {
         isAttacking = true;
-        verticalSpeed *= attackMoveSlowMultiplier;
-
+        
         switch(currentPhase)
         {
             case 1:
@@ -98,7 +114,6 @@ public class BossController : MonoBehaviour
                 break;
         }
 
-        verticalSpeed = baseVerticalSpeed;
         isAttacking = false;
     }
 
@@ -116,6 +131,11 @@ public class BossController : MonoBehaviour
             UpdateLaserChargeTimes(1f);
             Debug.Log("Final Phase!");
         }
+    }
+
+    public void SetDashing(bool dashingState)
+    {
+        isDashing = dashingState;
     }
 
     void UpdateLaserChargeTimes(float newChargeTime)

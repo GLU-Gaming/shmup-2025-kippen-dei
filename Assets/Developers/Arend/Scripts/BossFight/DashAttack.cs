@@ -22,9 +22,11 @@ public class DashAttack : MonoBehaviour
     private bool isDashing = false;
     private Vector3 originalScale;
     private Color originalColor;
+    private BossController bossController;
 
     void Start()
     {
+        bossController = GetComponent<BossController>();
         if (warningIndicator != null)
         {
             warningIndicator.enabled = false;
@@ -38,35 +40,68 @@ public class DashAttack : MonoBehaviour
         if (isDashing || DashTransform == null) yield break;
 
         isDashing = true;
+        bossController.SetDashing(true);
         originalPosition = transform.position;
 
-        // Calculate dash direction and target
+        // Calculate horizontal dash direction
         Vector3 dashDirection = (DashTransform.position - transform.position).normalized;
+        dashDirection.y = 0; // Remove vertical component
         Vector3 targetPosition = originalPosition + dashDirection * dashDistance;
 
-        // Calculate warning position with right offset
-        Vector3 warningPosition = targetPosition + 
-            Vector3.Cross(dashDirection, Vector3.up) * warningOffset;
-
-        // Show and animate warning
-        ShowWarning(warningPosition, dashDirection);
+        // Show warning indicator
+        ShowWarning(targetPosition, dashDirection);
         StartCoroutine(AnimateWarning());
         StartCoroutine(FlashWarning());
         yield return new WaitForSeconds(warningDuration);
         HideWarning();
 
-        // Perform dash
+        // Perform dash movement
         yield return StartCoroutine(MoveToPosition(targetPosition));
-        yield return StartCoroutine(MoveToPosition(originalPosition));
-
+        
+        // Return to X=8 position
+        yield return StartCoroutine(ReturnToBasePosition());
+        
         isDashing = false;
+        bossController.SetDashing(false);
     }
 
+    IEnumerator MoveToPosition(Vector3 target)
+    {
+        // Maintain vertical position from BossController's movement
+        Vector3 finalTarget = new Vector3(target.x, transform.position.y, target.z);
+        
+        while (Vector3.Distance(transform.position, finalTarget) > 0.01f)
+        {
+            // Only modify X position, Y is handled by BossController
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                finalTarget,
+                dashSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
+    }
+
+    IEnumerator ReturnToBasePosition()
+    {
+        Vector3 returnPosition = new Vector3(8f, transform.position.y, transform.position.z);
+        
+        while (Vector3.Distance(transform.position, returnPosition) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                returnPosition,
+                dashSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
+    }
+
+    // Rest of the original methods remain unchanged
     void ShowWarning(Vector3 targetPos, Vector3 dashDirection)
     {
         if (warningIndicator != null)
         {
-            // Position with offset and rotation
             warningIndicator.transform.position = targetPos;
             warningIndicator.transform.rotation = Quaternion.LookRotation(
                 Vector3.forward,
@@ -91,15 +126,11 @@ public class DashAttack : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < warningDuration)
         {
-            // Pulse animation
             float scale = Mathf.Lerp(minScale, maxScale, 
                 Mathf.PingPong(elapsed * pulseSpeed, 1f));
             warningIndicator.transform.localScale = originalScale * scale;
-
-            // Color transition
             warningIndicator.color = Color.Lerp(startColor, endColor, 
                 elapsed / warningDuration);
-
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -119,19 +150,5 @@ public class DashAttack : MonoBehaviour
             }
         }
         if (warningIndicator != null) warningIndicator.enabled = true;
-    }
-
-    IEnumerator MoveToPosition(Vector3 target)
-    {
-        while (Vector3.Distance(transform.position, target) > 0.01f)
-        {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                target,
-                dashSpeed * Time.deltaTime
-            );
-            yield return null;
-        }
-        transform.position = target;
     }
 }

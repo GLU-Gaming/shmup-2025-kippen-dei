@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -71,19 +72,21 @@ public class BossController : MonoBehaviour
         }
     }
 
-    void CheckPhase()
+void CheckPhase()
+{
+    if (currentHealth < maxHealth * 0.75f && currentPhase == 1)
     {
-        if (currentHealth < maxHealth * 0.75f && currentPhase == 1)
-        {
-            currentPhase = 2;
-            Debug.Log("Entering Phase 2!");
-        }
-        else if (currentHealth < maxHealth * 0.5f && currentPhase == 2)
-        {
-            currentPhase = 3;
-            Debug.Log("Final Phase!");
-        }
+        currentPhase = 2;
+        Debug.Log("Entering Phase 2!");
     }
+    else if (currentHealth < maxHealth * 0.5f && currentPhase == 2)
+    {
+        currentPhase = 3;
+        timeBetweenAttacks *= 0.7f; // Reduce attack cooldown for final phase
+        Debug.Log("Final Phase!");
+    }
+}
+
 
     void Phase1Attacks()
     {
@@ -123,19 +126,29 @@ public class BossController : MonoBehaviour
 
     IEnumerator FinalPhaseAttack()
     {
-        laserShooter.FireContinuousBeam(3f);
-        laserShooterAbove.FireContinuousBeam(3f); 
-        yield return new WaitForSeconds(1f);
-        droneSpawner.SpawnDroneSwarm(5);
-        yield return new WaitForSeconds(1f);
-        if (Random.value > 0.5f)
+        float rand = Random.value;
+    
+        if (rand > 0.7f)
         {
             laserShooter.AbortAttack();
-            laserShooterAbove.AbortAttack(); 
+            laserShooterAbove.AbortAttack();
             yield return StartCoroutine(DashAttack.Dash());
-            attackTimer = timeBetweenAttacks * 0.4f; // Even shorter cooldown in final phase
+            attackTimer = timeBetweenAttacks * 0.4f; 
+        }
+        else if (rand > 0.5f)
+        {
+            laserShooter.FireLaser();
+        }
+        else if (rand > 0.3f)
+        {
+            laserShooterAbove.FireLaser();
+        }
+        else
+        {
+            droneSpawner.SpawnDroneSwarm(5);
         }
     }
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -152,6 +165,8 @@ public class BossController : MonoBehaviour
         healthBarFill.fillAmount = currentHealth / maxHealth;
     }
 
+   
+
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -161,8 +176,10 @@ public class BossController : MonoBehaviour
         if (currentHealth <= 0)
         {
             laserShooter.AbortAttack();
-            laserShooterAbove.AbortAttack(); 
+            laserShooterAbove.AbortAttack();
             Destroy(gameObject);
+            SceneManager.LoadScene("Credits");
         }
     }
+
 }

@@ -206,29 +206,50 @@ public class BossController : MonoBehaviour
     
     IEnumerator Phase2Attack()
     {
-        if (Random.value > 0.7f)
+        float random = Random.value;
+    
+        if (random < 0.33f)
         {
+      
             yield return StartCoroutine(dashAttack.Dash());
         }
-        else 
+        else if (random < 0.66f)
         {
+      
             droneSpawner.SpawnDroneSwarm(3);
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
             laserShooter.FireLaser();
             laserShooterAbove.FireLaser();
+            yield return new WaitForSeconds(1f);
         }
     }
 
     IEnumerator Phase3Attack()
     {
-        if (Random.value > 0.5f)
+        float random = Random.value;
+    
+        if (random < 0.15f) 
         {
+            yield return StartCoroutine(dashAttack.Dash());
+        }
+        else if (random < 0.4f) 
+        {
+            droneSpawner.SpawnDroneSwarm(5);
             laserShooter.FireContinuousBeam(3f);
             yield return new WaitForSeconds(3f);
         }
-        else
+        else if (random < 0.65f) 
         {
-            droneSpawner.SpawnDroneSwarm(5);
+           
             laserShooterAbove.FireLaser();
+            yield return new WaitForSeconds(1f);
+        }
+        else 
+        {
+            
             laserShooterAbove2.FireLaser();
             yield return new WaitForSeconds(1f);
         }
@@ -242,7 +263,7 @@ public class BossController : MonoBehaviour
 
     private IEnumerator FlickerEffect(Color flickerColor, float duration)
     {
-        // Apply flicker color
+        
         foreach (Renderer r in allRenderers)
         {
             foreach (Material m in r.materials)
@@ -252,8 +273,7 @@ public class BossController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(duration);
-
-        // Revert colors
+        
         int colorIndex = 0;
         foreach (Renderer r in allRenderers)
         {

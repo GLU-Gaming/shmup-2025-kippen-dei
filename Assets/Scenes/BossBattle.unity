@@ -516,14 +516,14 @@ MonoBehaviour:
   healthBarFill: {fileID: 1209357083}
   verticalSpeed: 2
   verticalAmplitude: 1
-  attackMoveSlowMultiplier: 0.5
+  dashReturnSpeed: 10
   timeBetweenAttacks: 4
   currentPhase: 1
   droneSpawner: {fileID: 266793109}
   laserShooter: {fileID: 266793108}
   laserShooterAbove: {fileID: 266793113}
   laserShooterAbove2: {fileID: 266793114}
-  dashAttack: {fileID: 0}
+  dashAttack: {fileID: 266793110}
 --- !u!114 &266793108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +542,11 @@ MonoBehaviour:
   - {fileID: 1837603280}
   chargeTime: 2
   laserDuration: 1
+  laserDirection: {x: -1, y: 0}
+  laserLength: 30
+  xOffset: -2.6
+  yOffset: 1.8
+  laserThickness: 1
 --- !u!114 &266793109
 MonoBehaviour:
   m_ObjectHideFlags: 0

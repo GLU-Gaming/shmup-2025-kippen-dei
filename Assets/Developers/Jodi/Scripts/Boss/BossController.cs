@@ -79,7 +79,8 @@ public class BossController : MonoBehaviour
         // Face player direction
         if(player != null)
         {
-            float xScale = Mathf.Abs(transform.localScale.x) * Mathf.Sign(player.position.x - transform.position.x);
+            // Changed the order of subtraction to fix facing direction
+            float xScale = Mathf.Abs(transform.localScale.x) * Mathf.Sign(transform.position.x - player.position.x);
             transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
         }
     }
@@ -194,10 +195,13 @@ public class BossController : MonoBehaviour
     {
         if (collision.collider.CompareTag("Bullet"))
         {
-            TakeDamage(10);
+            Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+            if (projectile != null)
+            {
+                TakeDamage(projectile.damage);
+            }
         }
     }
-
     void UpdateHealthBar()
     {
         healthBarFill.fillAmount = currentHealth / maxHealth;

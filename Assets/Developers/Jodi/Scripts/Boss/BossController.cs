@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -36,6 +37,16 @@ public class BossController : MonoBehaviour
     [Header("Damage Multipliers")]
     public float mainBodyDamageMultiplier = 0.1f;
     public float weakPointDamageMultiplier = 1.2f;
+    
+    [Header("Visual Feedback")]
+    public Color mainBodyFlickerColor = new Color(1, 0, 0, 0.3f); 
+    public float mainBodyFlickerDuration = 0.1f;
+    public Color weakPointFlickerColor = Color.red; 
+    public float weakPointFlickerDuration = 0.2f;
+
+    private List<Renderer> allRenderers;
+    private List<Color> originalColors;
+    private Coroutine currentFlicker;
 
 
     private Transform player;
@@ -49,7 +60,17 @@ public class BossController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         phaseOffset = 0f;
         LockXPosition();
+        
+    allRenderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
+    originalColors = new List<Color>();
+    foreach (Renderer r in allRenderers)
+    {
+        foreach (Material m in r.materials)
+        {
+            originalColors.Add(m.color);
+        }
     }
+}
 
     void Update()
     {
@@ -71,20 +92,19 @@ public class BossController : MonoBehaviour
 
         if (!isDashing)
         {
-            // Maintain X position at 8 with smooth return
+           
             float currentX = Mathf.MoveTowards(transform.position.x, TARGET_X_POSITION, dashReturnSpeed * Time.deltaTime);
             transform.position = new Vector3(currentX, newY, transform.position.z);
         }
         else
         {
-            // Only update Y position during dash
+            
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         }
 
-        // Face player direction
         if(player != null)
         {
-            // Changed the order of subtraction to fix facing direction
+        
             float xScale = Mathf.Abs(transform.localScale.x) * Mathf.Sign(transform.position.x - player.position.x);
             transform.localScale = new Vector3(xScale, transform.localScale.y, transform.localScale.z);
         }
@@ -195,6 +215,37 @@ public class BossController : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+    
+    public void TriggerFlicker(Color flickerColor, float duration)
+    {
+        if (currentFlicker != null) StopCoroutine(currentFlicker);
+        currentFlicker = StartCoroutine(FlickerEffect(flickerColor, duration));
+    }
+
+    private IEnumerator FlickerEffect(Color flickerColor, float duration)
+    {
+        // Apply flicker color
+        foreach (Renderer r in allRenderers)
+        {
+            foreach (Material m in r.materials)
+            {
+                m.color = flickerColor;
+            }
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        // Revert colors
+        int colorIndex = 0;
+        foreach (Renderer r in allRenderers)
+        {
+            foreach (Material m in r.materials)
+            {
+                m.color = originalColors[colorIndex];
+                colorIndex++;
+            }
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -205,6 +256,7 @@ public class BossController : MonoBehaviour
             {
                 float calculatedDamage = projectile.damage * mainBodyDamageMultiplier;
                 TakeDamage(calculatedDamage);
+                TriggerFlicker(mainBodyFlickerColor, mainBodyFlickerDuration);
             }
         }
     }

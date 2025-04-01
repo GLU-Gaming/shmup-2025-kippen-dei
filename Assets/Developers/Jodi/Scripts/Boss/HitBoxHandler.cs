@@ -16,9 +16,9 @@ public class HitboxHandler : MonoBehaviour
             Projectile projectile = collision.gameObject.GetComponent<Projectile>();
             if (projectile != null && boss != null)
             {
-     
                 float calculatedDamage = projectile.damage * boss.weakPointDamageMultiplier;
                 boss.TakeDamage(calculatedDamage);
+                boss.TriggerFlicker(boss.weakPointFlickerColor, boss.weakPointFlickerDuration);
             }
         }
     }

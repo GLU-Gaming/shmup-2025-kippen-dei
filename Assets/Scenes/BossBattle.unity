@@ -514,13 +514,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15000
   healthBarFill: {fileID: 1209357083}
+  verticalSpeed: 2
+  verticalAmplitude: 1
+  attackMoveSlowMultiplier: 0.5
   timeBetweenAttacks: 4
   currentPhase: 1
   droneSpawner: {fileID: 266793109}
   laserShooter: {fileID: 266793108}
   laserShooterAbove: {fileID: 266793113}
   laserShooterAbove2: {fileID: 266793114}
-  DashAttack: {fileID: 266793110}
+  dashAttack: {fileID: 0}
 --- !u!114 &266793108
 MonoBehaviour:
   m_ObjectHideFlags: 0

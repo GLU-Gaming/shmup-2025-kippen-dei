@@ -43,6 +43,10 @@ public class BossController : MonoBehaviour
     public float mainBodyFlickerDuration = 0.1f;
     public Color weakPointFlickerColor = Color.red; 
     public float weakPointFlickerDuration = 0.2f;
+    
+    [Header("Hit Particles")]
+    public ParticleSystem weakPointHitParticle;
+    public ParticleSystem mainBodyHitParticle;
 
     private List<Renderer> allRenderers;
     private List<Color> originalColors;
@@ -120,6 +124,20 @@ public class BossController : MonoBehaviour
                 StartCoroutine(AttackRoutine());
                 attackTimer = timeBetweenAttacks;
             }
+        }
+    }
+    
+    public void PlayHitParticle(ParticleSystem particlePrefab, Vector3 position)
+    {
+        if (particlePrefab != null)
+        {
+     
+            ParticleSystem instance = Instantiate(particlePrefab, position, Quaternion.identity);
+        
+       
+            ParticleSystem.MainModule mainModule = instance.main;
+      
+            Destroy(instance.gameObject, mainModule.duration + 0.5f);
         }
     }
 
@@ -257,6 +275,12 @@ public class BossController : MonoBehaviour
                 float calculatedDamage = projectile.damage * mainBodyDamageMultiplier;
                 TakeDamage(calculatedDamage);
                 TriggerFlicker(mainBodyFlickerColor, mainBodyFlickerDuration);
+            
+                // Add particle for main body hit
+                if (collision.contacts.Length > 0)
+                {
+                    PlayHitParticle(mainBodyHitParticle, collision.contacts[0].point);
+                }
             }
         }
     }

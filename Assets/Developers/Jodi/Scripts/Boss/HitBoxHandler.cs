@@ -19,6 +19,12 @@ public class HitboxHandler : MonoBehaviour
                 float calculatedDamage = projectile.damage * boss.weakPointDamageMultiplier;
                 boss.TakeDamage(calculatedDamage);
                 boss.TriggerFlicker(boss.weakPointFlickerColor, boss.weakPointFlickerDuration);
+
+                // Add particle for weak point hit
+                if (collision.contacts.Length > 0)
+                {
+                    boss.PlayHitParticle(boss.weakPointHitParticle, collision.contacts[0].point);
+                }
             }
         }
     }

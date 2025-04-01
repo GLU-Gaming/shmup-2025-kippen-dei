@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 69522355}
   - component: {fileID: 69522354}
-  - component: {fileID: 69522353}
   m_Layer: 0
   m_Name: GameManagerJ
   m_TagString: Untagged
@@ -137,22 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &69522353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69522352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabad703f15e5d04bbd4bfc74d8fc4f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  scoreText: {fileID: 1106175301}
-  bossSceneName: BossBattle
-  bossScoreThreshold: 750
 --- !u!114 &69522354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +509,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 31cc9eb9c0d5cf74bbbf2601cad34e17, type: 2}
+    - target: {fileID: 4976120449224882275, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 8649891718810925292, guid: dc32dd2ab3e88c64f8bc26bc4648a4a2, type: 3}
     - target: {fileID: 5024417039912200571, guid: 612e20094c6905f4d9a330296a5b0b3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6
@@ -1269,8 +1256,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -909175935
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -829987780, guid: 522cb9a4d08108d4099652621fe4d2a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1467,6 +1454,7 @@ GameObject:
   - component: {fileID: 1738343131}
   - component: {fileID: 1738343130}
   - component: {fileID: 1738343129}
+  - component: {fileID: 1738343133}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1557,6 +1545,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1738343133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738343128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabad703f15e5d04bbd4bfc74d8fc4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 1106175301}
+  bossSceneName: BossBattle
+  bossScoreThreshold: 750
 --- !u!1 &1784545233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,8 +1634,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -909175935
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -242930914, guid: bb7a152858e77274b8bb90a3e5c6584b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1717,8 +1721,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -909175935
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -829987780, guid: 522cb9a4d08108d4099652621fe4d2a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

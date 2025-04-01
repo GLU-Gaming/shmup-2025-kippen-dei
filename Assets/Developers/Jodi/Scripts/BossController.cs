@@ -72,21 +72,64 @@ public class BossController : MonoBehaviour
         }
     }
 
-void CheckPhase()
-{
-    if (currentHealth < maxHealth * 0.75f && currentPhase == 1)
+    void CheckPhase()
     {
-        currentPhase = 2;
-        Debug.Log("Entering Phase 2!");
-    }
-    else if (currentHealth < maxHealth * 0.5f && currentPhase == 2)
-    {
-        currentPhase = 3;
-        timeBetweenAttacks *= 0.7f; // Reduce attack cooldown for final phase
-        Debug.Log("Final Phase!");
-    }
-}
+        if (currentHealth < maxHealth * 0.75f && currentPhase == 1)
+        {
+            currentPhase = 2;
+            Debug.Log("Entering Phase 2!");
+        }
+        else if (currentHealth < maxHealth * 0.5f && currentPhase == 2)
+        {
+            currentPhase = 3;
+            timeBetweenAttacks *= 0.5f;
 
+            // Phase 3 laser speed modifications
+            float phase3ChargeTime = 2.0f; // 50% faster charging
+            UpdateLaserChargeTime(laserShooter, phase3ChargeTime);
+            UpdateLaserChargeTime(laserShooterAbove, phase3ChargeTime);
+            UpdateLaserChargeTime(laserShooterAbove2, phase3ChargeTime);
+
+            Debug.Log("Final Phase!");
+        }
+    }
+
+    // Laser system updates
+    void UpdateLaserChargeTime(LaserShoot laserSystem, float newChargeTime)
+    {
+        if (laserSystem != null)
+        {
+            laserSystem.chargeTime = newChargeTime;
+            foreach (ChargeController chargeEffect in laserSystem.chargeEffects)
+            {
+                chargeEffect.chargeTime = newChargeTime;
+            }
+        }
+    }
+
+    void UpdateLaserChargeTime(LaserShootAbove laserSystem, float newChargeTime)
+    {
+        if (laserSystem != null)
+        {
+            laserSystem.chargeTime = newChargeTime;
+            foreach (ChargeController chargeEffect in laserSystem.chargeEffects)
+            {
+                chargeEffect.chargeTime = newChargeTime;
+            }
+        }
+    }
+
+    void UpdateLaserChargeTime(LaserShootAbove2 laserSystem, float newChargeTime)
+    {
+        if (laserSystem != null)
+        {
+            laserSystem.chargeTime = newChargeTime;
+            foreach (ChargeController chargeEffect in laserSystem.chargeEffects)
+            {
+                chargeEffect.chargeTime = newChargeTime;
+            }
+        }
+    }
 
     void Phase1Attacks()
     {
@@ -102,7 +145,7 @@ void CheckPhase()
         {
             laserShooter.AbortAttack();
             yield return StartCoroutine(DashAttack.Dash());
-            attackTimer = timeBetweenAttacks * 0.5f; // Reduce cooldown ONLY after dash
+            attackTimer = timeBetweenAttacks * 0.5f;
         }
         else if (Random.value > 0.7f)
         {
@@ -149,7 +192,6 @@ void CheckPhase()
         }
     }
 
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Bullet"))
@@ -165,8 +207,6 @@ void CheckPhase()
         healthBarFill.fillAmount = currentHealth / maxHealth;
     }
 
-   
-
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -181,5 +221,4 @@ void CheckPhase()
             SceneManager.LoadScene("Credits");
         }
     }
-
 }

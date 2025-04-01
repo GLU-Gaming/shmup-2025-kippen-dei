@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6a6096f38d66048bfcbf7469ab47fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPrefab: {fileID: 5546506825689751461, guid: 470eef69599bb834fb40484e8e440a9f, type: 3}
+  healthPrefabs: []
   healthContainer: {fileID: 1227729570}
 --- !u!4 &1832425752
 Transform:
@@ -1582,6 +1582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 305475202}
+  bossSceneName: BossBattle
+  bossScoreThreshold: 750
 --- !u!1 &2090625922
 GameObject:
   m_ObjectHideFlags: 0

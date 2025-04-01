@@ -203,11 +203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  speed: 2
+  speed: 3
   rotationSpeed: 5
   projectilePrefab: {fileID: 5599435068132058495, guid: 75779196a26e14e46add88f101d8036f, type: 3}
   firePoint: {fileID: 2683929039618728008}
-  fireRate: 1.5
+  fireRate: 1.4
 --- !u!65 &-7175347040865789836
 BoxCollider:
   m_ObjectHideFlags: 0

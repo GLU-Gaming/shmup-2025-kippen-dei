@@ -10,6 +10,21 @@ public class ScoreManager : MonoBehaviour
     public string bossSceneName = "BossBattle";
     public int bossScoreThreshold = 750;
 
+    private static ScoreManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         UpdateScoreUI();
@@ -29,7 +44,7 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = score.ToString("D4");
         }
     }
-    
+
     private void CheckBossBattle()
     {
         if (score >= bossScoreThreshold)

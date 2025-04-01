@@ -32,6 +32,11 @@ public class BossController : MonoBehaviour
     public LaserShootAbove laserShooterAbove; 
     public LaserShootAbove2 laserShooterAbove2; 
     public DashAttack dashAttack;
+    
+    [Header("Damage Multipliers")]
+    public float mainBodyDamageMultiplier = 0.1f;
+    public float weakPointDamageMultiplier = 1.2f;
+
 
     private Transform player;
     private bool isAttacking;
@@ -198,7 +203,8 @@ public class BossController : MonoBehaviour
             Projectile projectile = collision.gameObject.GetComponent<Projectile>();
             if (projectile != null)
             {
-                TakeDamage(projectile.damage);
+                float calculatedDamage = projectile.damage * mainBodyDamageMultiplier;
+                TakeDamage(calculatedDamage);
             }
         }
     }

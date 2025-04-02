@@ -166,12 +166,13 @@ public class BossController : MonoBehaviour
         if (currentHealth < maxHealth * 0.75f && currentPhase == 1)
         {
             currentPhase = 2;
+            timeBetweenAttacks *= 0.9f;
             Debug.Log("Entering Phase 2!");
         }
         else if (currentHealth < maxHealth * 0.5f && currentPhase == 2)
         {
             currentPhase = 3;
-            timeBetweenAttacks *= 0.7f;
+            timeBetweenAttacks *= 0.8f;
             UpdateLaserChargeTimes(1f);
             Debug.Log("Final Phase!");
         }
@@ -208,21 +209,24 @@ public class BossController : MonoBehaviour
     {
         float random = Random.value;
     
-        if (random < 0.33f)
+        if (random < 0.15f) 
         {
-      
             yield return StartCoroutine(dashAttack.Dash());
         }
-        else if (random < 0.66f)
+        else if (random < 0.4f) 
         {
-      
             droneSpawner.SpawnDroneSwarm(3);
+            laserShooter.FireContinuousBeam(3f);
+            yield return new WaitForSeconds(3f);
+        }
+        else if (random < 0.65f) 
+        {
+            laserShooterAbove.FireLaser();
             yield return new WaitForSeconds(1f);
         }
-        else
+        else 
         {
-            laserShooter.FireLaser();
-            laserShooterAbove.FireLaser();
+            laserShooterAbove2.FireLaser();
             yield return new WaitForSeconds(1f);
         }
     }
@@ -233,6 +237,7 @@ public class BossController : MonoBehaviour
     
         if (random < 0.15f) 
         {
+            droneSpawner.SpawnDroneSwarm(5);
             yield return StartCoroutine(dashAttack.Dash());
         }
         else if (random < 0.4f) 
@@ -243,13 +248,13 @@ public class BossController : MonoBehaviour
         }
         else if (random < 0.65f) 
         {
-           
+            droneSpawner.SpawnDroneSwarm(5);
             laserShooterAbove.FireLaser();
             yield return new WaitForSeconds(1f);
         }
         else 
         {
-            
+            droneSpawner.SpawnDroneSwarm(5);
             laserShooterAbove2.FireLaser();
             yield return new WaitForSeconds(1f);
         }

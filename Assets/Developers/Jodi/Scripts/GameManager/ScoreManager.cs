@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public string bossSceneName = "BossBattle";
     public int bossScoreThreshold = 750;
 
-    private static ScoreManager instance;
+    public static ScoreManager instance;
 
     void Awake()
     {

@@ -29,11 +29,29 @@ public class PauseMenu : MonoBehaviour
     
     public void LoadMenu()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        
+        if (Player.instance != null)
+        {
+            Destroy(Player.instance.gameObject);
+            Player.instance = null;
+        }
+        
+        if (ScoreManager.instance != null)
+        {
+            Destroy(ScoreManager.instance.gameObject);
+            ScoreManager.instance = null;
+        }
+        
+        PlayerHealthUI[] healthUIs = FindObjectsOfType<PlayerHealthUI>();
+        foreach (PlayerHealthUI healthUI in healthUIs)
+        {
+            Destroy(healthUI.gameObject);
+        }
+
         SceneManager.LoadScene("Menu");
-        Resume();
     }
-    
     public void QuitGame()
     {
         Application.Quit();

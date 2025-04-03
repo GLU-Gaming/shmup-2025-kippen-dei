@@ -10,12 +10,14 @@ public class PowerUpPickup : MonoBehaviour
     public float moveSpeed = 2f;
     public float flickerSpeed = 5f;
     public Vector3 textOffset = new Vector3(0, 0.5f, 0);
+    
 
     [Header("References")]
     [SerializeField] private TextMeshProUGUI powerUpText;
     private MeshRenderer meshRenderer;
     private Rigidbody rb;
 
+    public event System.Action OnPickup;
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -68,7 +70,9 @@ public class PowerUpPickup : MonoBehaviour
             {
                 shooting.ChangeProjectile(projectilePrefab);
             }
+            OnPickup?.Invoke();
             Destroy(gameObject);
+            
         }
     }
 }

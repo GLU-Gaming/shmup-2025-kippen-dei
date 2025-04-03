@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7203889501cf4d545851673f5533f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpName: Dual Shot
+  powerUpName: Triple Shot
   projectilePrefab: {fileID: 8649891718810925292, guid: dd0c7568281468e4785618226316c4a2, type: 3}
   moveSpeed: 2
   flickerSpeed: 5

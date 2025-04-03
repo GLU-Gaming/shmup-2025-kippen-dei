@@ -192,7 +192,7 @@ MonoBehaviour:
   pickupPrefabs:
   - {fileID: 7862018062724021417, guid: 222b016258273ea4a98903060bbee4c2, type: 3}
   - {fileID: 7862018062724021417, guid: 86c0fa668776fab4abe636981332a63c, type: 3}
-  spawnInterval: 5
+  spawnInterval: 20
   initialDelay: 2
   maxActivePickups: 3
   spawnContinuously: 1

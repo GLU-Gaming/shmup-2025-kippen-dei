@@ -320,7 +320,7 @@ public class BossController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("Credits");
+            SceneManager.LoadScene("WinScreen");
         }
     }
 }

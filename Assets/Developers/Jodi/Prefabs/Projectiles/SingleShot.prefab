@@ -126,4 +126,5 @@ MonoBehaviour:
   lifeTime: 5
   cooldownTime: 0.3
   initialDirection: {x: 0, y: 0, z: 0}
+  screenShake: {fileID: 0}
   projectilePrefab: {fileID: 8649891718810925292, guid: ec46d93436e1bca48b64c37e6927b2c2, type: 3}

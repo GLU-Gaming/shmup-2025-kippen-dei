@@ -18,6 +18,11 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Bestiary");
     }
+    
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 
     // Method to quit the game
     public void QuitGame()

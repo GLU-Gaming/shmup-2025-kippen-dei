@@ -606,10 +606,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1276326457}
+  - {fileID: 937888469}
   - {fileID: 155512636}
   - {fileID: 1474484932}
   - {fileID: 1121052698}
-  - {fileID: 937888469}
   - {fileID: 1727350858}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 937888471}
   - component: {fileID: 937888470}
   m_Layer: 5
-  m_Name: Quit (1)
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 85841675}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LoadCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

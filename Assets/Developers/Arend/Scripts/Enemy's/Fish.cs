@@ -37,7 +37,7 @@ public class Fish : EnemyBase
         Vector3 rightScreenEdge = Camera.main.ViewportToWorldPoint(new Vector3(1, 0.5f, 0));
 
         // If it reaches the left side, set target rotation and flip direction
-        if (movingLeft && transform.position.x < leftScreenEdge.x - 7)
+        if (movingLeft && transform.position.x < leftScreenEdge.x - 9)
         {
             movingLeft = false;
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

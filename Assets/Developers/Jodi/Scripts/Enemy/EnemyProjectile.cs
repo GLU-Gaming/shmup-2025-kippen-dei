@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class EnemyProjectile : Projectile
 {
-    public Vector3 direction;   
+    public Vector3 direction;
 
     protected override void Start()
     {
         base.Start();
-        
+
         if (direction != Vector3.zero)
         {
             initialDirection = direction.normalized;
+        }
+        else
+        {
+            initialDirection = Vector3.right;
         }
     }
 

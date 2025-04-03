@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Shooting : MonoBehaviour
 {
@@ -7,8 +8,12 @@ public class Shooting : MonoBehaviour
     public GameObject currentProjectile;
     public Transform shootPoint;
     public float baseCooldown = 0.5f;
+    public float powerupDuration = 5f;
+    public float warningTime = 2f; 
 
     private float nextShootTime = 0f;
+    private Coroutine resetRoutine;
+    private float powerupExpireTime;
 
     void Start()
     {
@@ -17,7 +22,26 @@ public class Shooting : MonoBehaviour
 
     public void ChangeProjectile(GameObject newProjectile)
     {
+        if (resetRoutine != null)
+        {
+            StopCoroutine(resetRoutine);
+        }
+        
         currentProjectile = newProjectile;
+        powerupExpireTime = Time.time + powerupDuration;
+        resetRoutine = StartCoroutine(ResetProjectileAfterDelay(powerupDuration));
+    }
+
+    IEnumerator ResetProjectileAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(10f);
+        ResetToDefault();
+    }
+
+    public void ResetToDefault()
+    {
+        currentProjectile = defaultProjectile;
+        resetRoutine = null;
     }
 
     void Update()
@@ -31,8 +55,18 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         GameObject newProjectile = Instantiate(currentProjectile, shootPoint.position, shootPoint.rotation);
-        Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         
+        // Add flicker effect if in warning period
+        if (Time.time > powerupExpireTime - warningTime)
+        {
+            FlickerEffect flicker = newProjectile.GetComponent<FlickerEffect>();
+            if (flicker != null)
+            {
+                flicker.StartFlicker(warningTime);
+            }
+        }
+
+        Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         float cooldown = projectileComponent != null ? projectileComponent.cooldownTime : baseCooldown;
         nextShootTime = Time.time + cooldown;
     }

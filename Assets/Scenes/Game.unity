@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 69522355}
   - component: {fileID: 69522354}
+  - component: {fileID: 69522356}
   m_Layer: 0
   m_Name: GameManagerJ
   m_TagString: Untagged
@@ -176,6 +177,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69522356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69522352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45176b36dbbdb1f4eb1658b6043425da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefabs:
+  - {fileID: 7862018062724021417, guid: 222b016258273ea4a98903060bbee4c2, type: 3}
+  spawnInterval: 5
+  initialDelay: 2
+  maxActivePickups: 3
+  spawnContinuously: 1
+  totalSpawns: 10
+  spawnAreaSize: {x: 10, y: 0, z: 10}
+  useSpawnPoints: 0
+  spawnPoints:
+  - {fileID: 0}
 --- !u!1 &136282670
 GameObject:
   m_ObjectHideFlags: 0

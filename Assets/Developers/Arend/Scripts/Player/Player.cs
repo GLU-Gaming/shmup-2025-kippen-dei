@@ -94,6 +94,23 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player has died.");
         Destroy(gameObject);
+        if (Player.instance != null)
+        {
+                Destroy(Player.instance.gameObject);
+                Player.instance = null;
+        }
+        
+        if (ScoreManager.instance != null)
+        {
+                Destroy(ScoreManager.instance.gameObject);
+                ScoreManager.instance = null;
+        }
+        
+        PlayerHealthUI[] healthUIs = FindObjectsOfType<PlayerHealthUI>();
+        foreach (PlayerHealthUI healthUI in healthUIs)
+        {
+                Destroy(healthUI.gameObject);
+        }
         SceneManager.LoadScene("GameOver");
     }
 

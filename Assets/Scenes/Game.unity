@@ -2884,7 +2884,7 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 1106175301}
   bossSceneName: BossBattle
-  bossScoreThreshold: 10
+  bossScoreThreshold: 750
 --- !u!114 &1738343134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3635,9 +3635,9 @@ SceneRoots:
   - {fileID: 1033856047}
   - {fileID: 752466743}
   - {fileID: 1583135426}
+  - {fileID: 1216695139}
   - {fileID: 1648085564}
   - {fileID: 1524361146}
   - {fileID: 2143690407}
   - {fileID: 136282673}
   - {fileID: 582015570}
-  - {fileID: 1216695139}

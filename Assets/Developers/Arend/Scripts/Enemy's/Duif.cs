@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Duif : EnemyBase
 {
-    [Header("Bird Settings")]
-    public float speed = 3f;
+    [Header("Bird Settings")] public float speed = 3f;
 
-    [Header("Shooting Settings")]
-    public GameObject projectilePrefab;
+    [Header("Shooting Settings")] public GameObject projectilePrefab;
     public Transform firePoint;
     public float fireRate = 1.8f;
     private float fireTimer;
@@ -50,7 +48,8 @@ public class Duif : EnemyBase
     {
         if (projectilePrefab != null && firePoint != null)
         {
-            Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+            Instantiate(projectilePrefab, firePoint.position, projectilePrefab.transform.rotation);
         }
     }
 }

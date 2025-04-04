@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Fish : EnemyBase
 {
-    [Header("Fish Movement Settings")]
-    public float speed = 2f;
+    [Header("Fish Movement Settings")] public float speed = 2f;
     public float rotationSpeed = 5f;
     private bool movingLeft = true;
     private Quaternion targetRotation;
 
-    [Header("Shooting Settings")]
-    public GameObject projectilePrefab;
+    [Header("Shooting Settings")] public GameObject projectilePrefab;
     public Transform firePoint;
     public float fireRate = 1.5f;
     private float fireTimer;
@@ -40,7 +38,8 @@ public class Fish : EnemyBase
         if (movingLeft && transform.position.x < leftScreenEdge.x - 9)
         {
             movingLeft = false;
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y,
+                transform.localScale.z);
         }
 
         if (!movingLeft && transform.position.x > rightScreenEdge.x + 10)
@@ -69,15 +68,20 @@ public class Fish : EnemyBase
     {
         if (projectilePrefab != null && firePoint != null)
         {
-            GameObject newProjectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            // Use prefab's rotation instead of Quaternion.identity
+            GameObject newProjectile = Instantiate(
+                projectilePrefab,
+                firePoint.position,
+                projectilePrefab.transform.rotation 
+            );
 
             EnemyProjectile projectileComponent = newProjectile.GetComponent<EnemyProjectile>();
             if (projectileComponent != null)
             {
-                projectileComponent.direction = movingLeft ? new Vector3(-1, 1, 0).normalized : new Vector3(1, 1, 0).normalized;
-
+                projectileComponent.direction = movingLeft
+                    ? new Vector3(-1, 1, 0).normalized
+                    : new Vector3(1, 1, 0).normalized;
             }
         }
     }
-
 }

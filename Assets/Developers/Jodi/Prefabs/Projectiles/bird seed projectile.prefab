@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.54038
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.54038
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.54038
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -83,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a91d4e53f87b70040b190c0ffe7038f6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -120,8 +128,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.28337455, y: 2.743332, z: 1.7179962}
-  m_Center: {x: -1.2145196, y: 0.87166715, z: 0.09491596}
+  m_Size: {x: 3.0659227, y: 2.743332, z: 1.7179962}
+  m_Center: {x: -1.3646585, y: 0.8716671, z: 0.094915986}
 --- !u!114 &4524877948089413223
 MonoBehaviour:
   m_ObjectHideFlags: 0

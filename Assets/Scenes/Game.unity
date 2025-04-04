@@ -2591,12 +2591,12 @@ MonoBehaviour:
   - {fileID: 2458027283669126163, guid: f09d8511cc08cf340bcaf39f3049f87b, type: 3}
   - {fileID: 4206450965812455771, guid: c7e199c7f00c9004f9d9cf3e50ca6efe, type: 3}
   - {fileID: 5012235381662424338, guid: a29963d53bca758428ddca8ac7421850, type: 3}
-  - {fileID: 5528576856947143654, guid: 5622b4d3ff4f0374e85dce38cf8fa504, type: 3}
   - {fileID: 6720515614256818045, guid: 692fad107b64cbf4d90038053dd3a422, type: 3}
   - {fileID: 5715192627839814751, guid: 5d99dec0f2417c842ba53f11140a52b5, type: 3}
   - {fileID: 25705829755198682, guid: ff28e8ca3f0bc954ba26708bc37ba741, type: 3}
   spawnPoint: {fileID: 258814912}
-  spawnInterval: 4
+  minSpawnInterval: 2
+  maxSpawnInterval: 5
   initialPoolSize: 20
   despawnX: -15
   objectSpeed: 0

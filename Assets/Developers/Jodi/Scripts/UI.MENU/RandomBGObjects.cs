@@ -6,7 +6,8 @@ public class BGObjectSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     public List<GameObject> objectPrefabs;
     public Transform spawnPoint;
-    public float spawnInterval = 1f;
+    public float minSpawnInterval = 0.5f;
+    public float maxSpawnInterval = 2f;
     public int initialPoolSize = 20;
     public float despawnX = -15f;
 
@@ -15,10 +16,12 @@ public class BGObjectSpawner : MonoBehaviour
 
     private Queue<GameObject> objectPool = new Queue<GameObject>();
     private float timer;
+    private float currentSpawnInterval;
 
     void Start()
     {
         InitializePool();
+        SetNewSpawnInterval();
     }
 
     void InitializePool()
@@ -48,18 +51,23 @@ public class BGObjectSpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
         
-        if (timer >= spawnInterval)
+        if (timer >= currentSpawnInterval)
         {
             SpawnObject();
             timer = 0f;
+            SetNewSpawnInterval();
         }
+    }
+
+    void SetNewSpawnInterval()
+    {
+        currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
     void SpawnObject()
     {
         if (objectPool.Count == 0)
         {
-            // Expand pool if empty
             objectPool.Enqueue(CreatePooledObject());
         }
 

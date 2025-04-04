@@ -4,36 +4,38 @@ using UnityEngine;
 public class LoopingBGObject : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [Tooltip("Movement speed in units/second")]
     public float speed = 2f;
     
     [Header("Reposition Settings")]
-    [Tooltip("Extra space past screen edge before repositioning")]
     public float screenEdgeBuffer = 1f;
 
     private Transform[] spawnLocations;
-    private float repositionThreshold;
-    private float objectWidth;
+    private float objectRightEdge;
+    private float leftScreenEdge;
+    private Renderer objectRenderer;
 
     void Start()
     {
-        InitializeObject();
+        InitializeComponents();
+        CalculateEdges();
     }
 
-    void InitializeObject()
+    void InitializeComponents()
     {
-        // Calculate object width using renderer bounds
-        Renderer rend = GetComponent<Renderer>();
-        objectWidth = rend != null ? rend.bounds.size.x : 2f;
+        objectRenderer = GetComponent<Renderer>();
+    }
 
-        // Calculate reposition threshold
-        float cameraLeftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
-        repositionThreshold = cameraLeftEdge - objectWidth - screenEdgeBuffer;
+    void CalculateEdges()
+    {
+        Vector3 objectRight = transform.TransformPoint(objectRenderer.bounds.max);
+        objectRightEdge = objectRight.x;
+        leftScreenEdge = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
     }
 
     void Update()
     {
         MoveObject();
+        UpdateObjectEdges();
         CheckReposition();
     }
 
@@ -42,9 +44,16 @@ public class LoopingBGObject : MonoBehaviour
         transform.Translate(Vector3.left * (speed * Time.deltaTime), Space.World);
     }
 
+    void UpdateObjectEdges()
+    {
+        Vector3 objectRight = transform.TransformPoint(objectRenderer.bounds.max);
+        objectRightEdge = objectRight.x;
+    }
+
     void CheckReposition()
     {
-        if (transform.position.x <= repositionThreshold && spawnLocations.Length > 0)
+        float repositionThreshold = leftScreenEdge - screenEdgeBuffer;
+        if (objectRightEdge <= repositionThreshold && spawnLocations.Length > 0)
         {
             RepositionObject();
         }
@@ -58,10 +67,23 @@ public class LoopingBGObject : MonoBehaviour
             transform.position.y,
             transform.position.z
         );
+        UpdateObjectEdges();
     }
 
     public void SetSpawnLocations(Transform[] locations)
     {
         spawnLocations = locations;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (objectRenderer != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(
+                new Vector3(objectRightEdge, transform.position.y - 1, transform.position.z),
+                new Vector3(objectRightEdge, transform.position.y + 1, transform.position.z)
+            );
+        }
     }
 }

@@ -90,4 +90,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  screenEdgeBuffer: 3
+  screenEdgeBuffer: 4

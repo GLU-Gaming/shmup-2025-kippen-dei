@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4907694093945181925, guid: 2f0ca599e8bd82446917c29d0c8c662f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.195782
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4907694093945181925, guid: 2f0ca599e8bd82446917c29d0c8c662f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -3.56
       objectReference: {fileID: 0}
     - target: {fileID: 4907694093945181925, guid: 2f0ca599e8bd82446917c29d0c8c662f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.811124
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4907694093945181925, guid: 2f0ca599e8bd82446917c29d0c8c662f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  screenEdgeBuffer: 3
+  screenEdgeBuffer: 4

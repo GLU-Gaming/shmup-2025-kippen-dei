@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.PlayMusic(AudioManager.Instance.gameMusic);
         screenShake = Camera.main.GetComponent<ScreenShake>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }

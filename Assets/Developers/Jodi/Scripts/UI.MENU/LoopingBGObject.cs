@@ -1,33 +1,37 @@
 using UnityEngine;
 
-public class LoopingBGObject : MonoBehaviour
+public class BGObjectPool : MonoBehaviour
 {
-    public float speed = 2f;
-    public Transform[] spawnLocations;
-    private float repositionThreshold;
-
-    void Start()
-    {
-        // Calculate left edge threshold
-        repositionThreshold = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x - 2f;
-    }
-
-    public void Initialize(Transform[] locations)
-    {
-        spawnLocations = locations;
-    }
+    [Header("Settings")]
+    public float moveSpeed = 2f;
+    public float despawnX = -15f;
+    
+    private Vector3 spawnPosition;
+    private Transform objectPoolParent;
 
     void Update()
     {
-        // Move object left
-        transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+        // Move object left at constant speed
+        transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime), Space.World);
 
-        // Reposition when past threshold
-        if (transform.position.x <= repositionThreshold && spawnLocations.Length > 0)
+        // Check despawn condition
+        if (transform.position.x <= despawnX)
         {
-            // Get random spawn location
-            Transform newLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
-            transform.position = newLocation.position;
+            ReturnToPool();
         }
+    }
+
+    public void Initialize(Vector3 spawnPos, Transform poolParent)
+    {
+        spawnPosition = spawnPos;
+        objectPoolParent = poolParent;
+    }
+
+    void ReturnToPool()
+    {
+        // Reset and return to pool
+        transform.position = spawnPosition;
+        transform.SetParent(objectPoolParent);
+        gameObject.SetActive(false);
     }
 }

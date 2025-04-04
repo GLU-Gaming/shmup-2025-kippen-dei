@@ -1,57 +1,79 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class RandomBGObjects : MonoBehaviour
+public class BGObjectSpawner : MonoBehaviour
 {
-    public List<GameObject> bgObjectPrefabs;
-    public List<Transform> spawnLocations;
-    public float minSpawnInterval = 3f;  // Increased minimum interval
-    public float maxSpawnInterval = 8f;  // Increased maximum interval
-    [Range(0, 1)] public float spawnProbability = 0.3f;  // Added probability factor
+    [Header("Spawn Settings")]
+    public List<GameObject> objectPrefabs;
+    public Transform spawnPoint;
+    public float minSpawnInterval = 0.5f;
+    public float maxSpawnInterval = 2f;
+    public int initialPoolSize = 20;
+    public float despawnX = -15f;
 
-    private float nextSpawnTime;
+    [Header("Movement Settings")]
+    public float objectSpeed = 2f;
+
+    private Queue<GameObject> objectPool = new Queue<GameObject>();
+    private float timer;
+    private float currentSpawnInterval;
 
     void Start()
     {
-        SetNextSpawnTime();
+        InitializePool();
+        SetNewSpawnInterval();
+    }
+
+    void InitializePool()
+    {
+        for (int i = 0; i < initialPoolSize; i++)
+        {
+            GameObject obj = CreatePooledObject();
+            objectPool.Enqueue(obj);
+        }
+    }
+
+    GameObject CreatePooledObject()
+    {
+        GameObject prefab = objectPrefabs[Random.Range(0, objectPrefabs.Count)];
+        GameObject obj = Instantiate(prefab, spawnPoint.position, prefab.transform.rotation);
+        obj.SetActive(false);
+        
+        BGObjectPool poolScript = obj.AddComponent<BGObjectPool>();
+        poolScript.moveSpeed = objectSpeed;
+        poolScript.despawnX = despawnX;
+        poolScript.Initialize(spawnPoint.position, transform);
+        
+        return obj;
     }
 
     void Update()
     {
-        if (Time.time >= nextSpawnTime)
+        timer += Time.deltaTime;
+        
+        if (timer >= currentSpawnInterval)
         {
-            // Only spawn if probability check passes
-            if (Random.value <= spawnProbability)
-            {
-                SpawnBGObject();
-            }
-            SetNextSpawnTime();
+            SpawnObject();
+            timer = 0f;
+            SetNewSpawnInterval();
         }
     }
 
-    void SetNextSpawnTime()
+    void SetNewSpawnInterval()
     {
-        nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
+        currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
-    void SpawnBGObject()
+    void SpawnObject()
     {
-        if (bgObjectPrefabs.Count == 0 || spawnLocations.Count == 0) return;
-
-        GameObject prefab = bgObjectPrefabs[Random.Range(0, bgObjectPrefabs.Count)];
-        Transform spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
-
-        // Inherit prefab's rotation instead of using identity
-        GameObject bgObject = Instantiate(
-            prefab, 
-            spawnLocation.position, 
-            prefab.transform.rotation  // Changed to use prefab's rotation
-        );
-
-        LoopingBGObject loopingScript = bgObject.GetComponent<LoopingBGObject>();
-        if (loopingScript != null)
+        if (objectPool.Count == 0)
         {
-            loopingScript.Initialize(spawnLocations.ToArray());
+            objectPool.Enqueue(CreatePooledObject());
         }
+
+        GameObject obj = objectPool.Dequeue();
+        obj.transform.position = spawnPoint.position;
+        obj.SetActive(true);
+        objectPool.Enqueue(obj);
     }
 }

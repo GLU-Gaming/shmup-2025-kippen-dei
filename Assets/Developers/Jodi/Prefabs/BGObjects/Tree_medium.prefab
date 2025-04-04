@@ -70,10 +70,32 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: dc059dfd973e712438bd1e2932941f32, type: 2}
     - target: {fileID: 919132149155446097, guid: f5726fafe75069640b54077490dc5e35, type: 3}
       propertyPath: m_Name
-      value: Tree
+      value: Tree_medium
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5726fafe75069640b54077490dc5e35, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5088859760166021695}
   m_SourcePrefab: {fileID: 100100000, guid: f5726fafe75069640b54077490dc5e35, type: 3}
+--- !u!1 &5715192627839814751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f5726fafe75069640b54077490dc5e35, type: 3}
+  m_PrefabInstance: {fileID: 4868699866846458126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5088859760166021695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715192627839814751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b171d6953a9884c8d738a0a58844e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  spawnLocations: []

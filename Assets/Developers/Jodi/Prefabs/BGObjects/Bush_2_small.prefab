@@ -62,10 +62,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dffd608812a6b2646bc790bcd8849f9b, type: 3}
       propertyPath: m_Name
-      value: Bush 2
+      value: Bush_2_small
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dffd608812a6b2646bc790bcd8849f9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1957340341436380419}
   m_SourcePrefab: {fileID: 100100000, guid: dffd608812a6b2646bc790bcd8849f9b, type: 3}
+--- !u!1 &5012235381662424338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dffd608812a6b2646bc790bcd8849f9b, type: 3}
+  m_PrefabInstance: {fileID: 5282265343667937347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1957340341436380419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5012235381662424338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b171d6953a9884c8d738a0a58844e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  spawnLocations: []

@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   speed: 6
-  projectilePrefab: {fileID: 1910474528939034053, guid: f093139b32a29a740accfc8b5eeaa404, type: 3}
+  projectilePrefab: {fileID: 1318446049097422003, guid: 01151493c46f52746a7d903d62ff375d, type: 3}
   firePoint: {fileID: 2882126751647116262}
   fireRate: 1.1
 --- !u!4 &795760290025114723 stripped

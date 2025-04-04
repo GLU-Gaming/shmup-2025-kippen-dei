@@ -1,89 +1,37 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
-public class LoopingBGObject : MonoBehaviour
+public class BGObjectPool : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float speed = 2f;
+    [Header("Settings")]
+    public float moveSpeed = 2f;
+    public float despawnX = -15f;
     
-    [Header("Reposition Settings")]
-    public float screenEdgeBuffer = 1f;
-
-    private Transform[] spawnLocations;
-    private float objectRightEdge;
-    private float leftScreenEdge;
-    private Renderer objectRenderer;
-
-    void Start()
-    {
-        InitializeComponents();
-        CalculateEdges();
-    }
-
-    void InitializeComponents()
-    {
-        objectRenderer = GetComponent<Renderer>();
-    }
-
-    void CalculateEdges()
-    {
-        Vector3 objectRight = transform.TransformPoint(objectRenderer.bounds.max);
-        objectRightEdge = objectRight.x;
-        leftScreenEdge = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
-    }
+    private Vector3 spawnPosition;
+    private Transform objectPoolParent;
 
     void Update()
     {
-        MoveObject();
-        UpdateObjectEdges();
-        CheckReposition();
-    }
+        // Move object left at constant speed
+        transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime), Space.World);
 
-    void MoveObject()
-    {
-        transform.Translate(Vector3.left * (speed * Time.deltaTime), Space.World);
-    }
-
-    void UpdateObjectEdges()
-    {
-        Vector3 objectRight = transform.TransformPoint(objectRenderer.bounds.max);
-        objectRightEdge = objectRight.x;
-    }
-
-    void CheckReposition()
-    {
-        float repositionThreshold = leftScreenEdge - screenEdgeBuffer;
-        if (objectRightEdge <= repositionThreshold && spawnLocations.Length > 0)
+        // Check despawn condition
+        if (transform.position.x <= despawnX)
         {
-            RepositionObject();
+            ReturnToPool();
         }
     }
 
-    void RepositionObject()
+    public void Initialize(Vector3 spawnPos, Transform poolParent)
     {
-        Transform newLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
-        transform.position = new Vector3(
-            newLocation.position.x,
-            transform.position.y,
-            transform.position.z
-        );
-        UpdateObjectEdges();
+        spawnPosition = spawnPos;
+        objectPoolParent = poolParent;
     }
 
-    public void SetSpawnLocations(Transform[] locations)
+    void ReturnToPool()
     {
-        spawnLocations = locations;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (objectRenderer != null)
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(
-                new Vector3(objectRightEdge, transform.position.y - 1, transform.position.z),
-                new Vector3(objectRightEdge, transform.position.y + 1, transform.position.z)
-            );
-        }
+        // Reset and return to pool
+        transform.position = spawnPosition;
+        transform.SetParent(objectPoolParent);
+        gameObject.SetActive(false);
     }
 }

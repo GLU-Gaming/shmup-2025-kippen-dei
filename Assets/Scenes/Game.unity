@@ -2586,10 +2586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32783e95e09f6544db2df1874cbc1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnInterval: 1
-  maxSpawnInterval: 3
-  spawnProbability: 0.3
-  bgObjectPrefabs:
+  objectPrefabs:
   - {fileID: 62251299750597695, guid: 10e921ccc045f3e47bc5d3f9b7866bad, type: 3}
   - {fileID: 2458027283669126163, guid: f09d8511cc08cf340bcaf39f3049f87b, type: 3}
   - {fileID: 4206450965812455771, guid: c7e199c7f00c9004f9d9cf3e50ca6efe, type: 3}
@@ -2598,10 +2595,11 @@ MonoBehaviour:
   - {fileID: 6720515614256818045, guid: 692fad107b64cbf4d90038053dd3a422, type: 3}
   - {fileID: 5715192627839814751, guid: 5d99dec0f2417c842ba53f11140a52b5, type: 3}
   - {fileID: 25705829755198682, guid: ff28e8ca3f0bc954ba26708bc37ba741, type: 3}
-  spawnLocations:
-  - {fileID: 258814912}
-  maxVerticalOffset: 0.5
-  showSpawnArea: 1
+  spawnPoint: {fileID: 258814912}
+  spawnInterval: 4
+  initialPoolSize: 20
+  despawnX: -15
+  objectSpeed: 0
 --- !u!4 &1583135426
 Transform:
   m_ObjectHideFlags: 0

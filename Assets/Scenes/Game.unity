@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 56429994}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.29, y: -0.435, z: 3.33}
+  m_LocalPosition: {x: 4.23, y: -0.435, z: 3.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3342,14 +3342,13 @@ MonoBehaviour:
   - {fileID: 2458027283669126163, guid: f09d8511cc08cf340bcaf39f3049f87b, type: 3}
   - {fileID: 4206450965812455771, guid: c7e199c7f00c9004f9d9cf3e50ca6efe, type: 3}
   - {fileID: 5012235381662424338, guid: a29963d53bca758428ddca8ac7421850, type: 3}
-  - {fileID: 6720515614256818045, guid: 692fad107b64cbf4d90038053dd3a422, type: 3}
   - {fileID: 5715192627839814751, guid: 5d99dec0f2417c842ba53f11140a52b5, type: 3}
   - {fileID: 25705829755198682, guid: ff28e8ca3f0bc954ba26708bc37ba741, type: 3}
   spawnPoint: {fileID: 258814912}
-  minSpawnInterval: 5
-  maxSpawnInterval: 7
+  minSpawnInterval: 2
+  maxSpawnInterval: 5
   initialPoolSize: 20
-  despawnX: -15
+  despawnX: -20
   objectSpeed: 0
 --- !u!4 &1583135426
 Transform:
@@ -3383,11 +3382,13 @@ MonoBehaviour:
   objectPrefabs:
   - {fileID: 6720515614256818045, guid: 692fad107b64cbf4d90038053dd3a422, type: 3}
   - {fileID: 4206450965812455771, guid: c7e199c7f00c9004f9d9cf3e50ca6efe, type: 3}
+  - {fileID: 5715192627839814751, guid: 5d99dec0f2417c842ba53f11140a52b5, type: 3}
+  - {fileID: 62251299750597695, guid: 10e921ccc045f3e47bc5d3f9b7866bad, type: 3}
   spawnPoint: {fileID: 56429995}
-  minSpawnInterval: 2
-  maxSpawnInterval: 5
+  minSpawnInterval: 5
+  maxSpawnInterval: 7
   initialPoolSize: 20
-  despawnX: -15
+  despawnX: -20
   objectSpeed: 0
 --- !u!1001 &1631287276
 PrefabInstance:

@@ -3,16 +3,22 @@ using System.Collections.Generic;
 
 public class RandomBGObjects : MonoBehaviour
 {
+    [Header("Spawn Settings")]
+    public float minSpawnInterval = 4f;
+    public float maxSpawnInterval = 8f;
+    [Range(0, 1)] public float spawnProbability = 0.3f;
+
+    [Header("Object Settings")]
     public List<GameObject> bgObjectPrefabs;
     public List<Transform> spawnLocations;
-    public float minSpawnInterval = 3f;  // Increased minimum interval
-    public float maxSpawnInterval = 8f;  // Increased maximum interval
-    [Range(0, 1)] public float spawnProbability = 0.3f;  // Added probability factor
+    public float maxVerticalOffset = 0.5f;
 
     private float nextSpawnTime;
+    private List<GameObject> objectPool = new List<GameObject>();
 
     void Start()
     {
+        InitializePool();
         SetNextSpawnTime();
     }
 
@@ -20,38 +26,78 @@ public class RandomBGObjects : MonoBehaviour
     {
         if (Time.time >= nextSpawnTime)
         {
-            // Only spawn if probability check passes
-            if (Random.value <= spawnProbability)
-            {
-                SpawnBGObject();
-            }
+            TrySpawnObject();
             SetNextSpawnTime();
         }
+    }
+
+    void InitializePool()
+    {
+        foreach (GameObject prefab in bgObjectPrefabs)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject obj = Instantiate(prefab);
+                obj.SetActive(false);
+                obj.GetComponent<LoopingBGObject>().SetSpawnLocations(spawnLocations.ToArray());
+                objectPool.Add(obj);
+            }
+        }
+    }
+
+    void TrySpawnObject()
+    {
+        if (ShouldSpawn() && GetAvailableObject(out GameObject obj))
+        {
+            SpawnObject(obj);
+        }
+    }
+
+    bool ShouldSpawn()
+    {
+        return bgObjectPrefabs.Count > 0 && 
+               spawnLocations.Count > 0 && 
+               Random.value <= spawnProbability;
+    }
+
+    bool GetAvailableObject(out GameObject availableObj)
+    {
+        foreach (GameObject obj in objectPool)
+        {
+            if (!obj.activeInHierarchy)
+            {
+                availableObj = obj;
+                return true;
+            }
+        }
+        availableObj = CreateNewPooledObject();
+        return availableObj != null;
+    }
+
+    GameObject CreateNewPooledObject()
+    {
+        if (bgObjectPrefabs.Count == 0) return null;
+        
+        GameObject prefab = bgObjectPrefabs[Random.Range(0, bgObjectPrefabs.Count)];
+        GameObject newObj = Instantiate(prefab);
+        newObj.GetComponent<LoopingBGObject>().SetSpawnLocations(spawnLocations.ToArray());
+        objectPool.Add(newObj);
+        return newObj;
+    }
+
+    void SpawnObject(GameObject obj)
+    {
+        Transform spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
+        Vector3 spawnPosition = spawnLocation.position + 
+            new Vector3(0, Random.Range(-maxVerticalOffset, maxVerticalOffset), 0);
+
+        obj.transform.position = spawnPosition;
+        obj.transform.rotation = obj.GetComponent<LoopingBGObject>().transform.rotation;
+        obj.SetActive(true);
     }
 
     void SetNextSpawnTime()
     {
         nextSpawnTime = Time.time + Random.Range(minSpawnInterval, maxSpawnInterval);
-    }
-
-    void SpawnBGObject()
-    {
-        if (bgObjectPrefabs.Count == 0 || spawnLocations.Count == 0) return;
-
-        GameObject prefab = bgObjectPrefabs[Random.Range(0, bgObjectPrefabs.Count)];
-        Transform spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
-
-        // Inherit prefab's rotation instead of using identity
-        GameObject bgObject = Instantiate(
-            prefab, 
-            spawnLocation.position, 
-            prefab.transform.rotation  // Changed to use prefab's rotation
-        );
-
-        LoopingBGObject loopingScript = bgObject.GetComponent<LoopingBGObject>();
-        if (loopingScript != null)
-        {
-            loopingScript.Initialize(spawnLocations.ToArray());
-        }
     }
 }

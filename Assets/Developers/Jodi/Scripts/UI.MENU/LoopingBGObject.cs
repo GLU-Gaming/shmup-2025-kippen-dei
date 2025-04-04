@@ -1,33 +1,67 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class LoopingBGObject : MonoBehaviour
 {
+    [Header("Movement Settings")]
+    [Tooltip("Movement speed in units/second")]
     public float speed = 2f;
-    public Transform[] spawnLocations;
+    
+    [Header("Reposition Settings")]
+    [Tooltip("Extra space past screen edge before repositioning")]
+    public float screenEdgeBuffer = 1f;
+
+    private Transform[] spawnLocations;
     private float repositionThreshold;
+    private float objectWidth;
 
     void Start()
     {
-        // Calculate left edge threshold
-        repositionThreshold = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x - 2f;
+        InitializeObject();
     }
 
-    public void Initialize(Transform[] locations)
+    void InitializeObject()
     {
-        spawnLocations = locations;
+        // Calculate object width using renderer bounds
+        Renderer rend = GetComponent<Renderer>();
+        objectWidth = rend != null ? rend.bounds.size.x : 2f;
+
+        // Calculate reposition threshold
+        float cameraLeftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
+        repositionThreshold = cameraLeftEdge - objectWidth - screenEdgeBuffer;
     }
 
     void Update()
     {
-        // Move object left
-        transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+        MoveObject();
+        CheckReposition();
+    }
 
-        // Reposition when past threshold
+    void MoveObject()
+    {
+        transform.Translate(Vector3.left * (speed * Time.deltaTime), Space.World);
+    }
+
+    void CheckReposition()
+    {
         if (transform.position.x <= repositionThreshold && spawnLocations.Length > 0)
         {
-            // Get random spawn location
-            Transform newLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
-            transform.position = newLocation.position;
+            RepositionObject();
         }
+    }
+
+    void RepositionObject()
+    {
+        Transform newLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
+        transform.position = new Vector3(
+            newLocation.position.x,
+            transform.position.y,
+            transform.position.z
+        );
+    }
+
+    public void SetSpawnLocations(Transform[] locations)
+    {
+        spawnLocations = locations;
     }
 }

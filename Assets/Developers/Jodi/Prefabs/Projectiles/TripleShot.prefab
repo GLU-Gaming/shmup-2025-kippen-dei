@@ -124,7 +124,8 @@ MonoBehaviour:
   damage: 25
   speed: 10
   lifeTime: 5
-  cooldownTime: 0.3
+  cooldownTime: 0.2
   initialDirection: {x: 0, y: 0, z: 0}
+  screenShake: {fileID: 0}
   spreadAngle: 30
   projectilePrefab: {fileID: 8649891718810925292, guid: d97a6258881eeac48b21319ea8811f6e, type: 3}

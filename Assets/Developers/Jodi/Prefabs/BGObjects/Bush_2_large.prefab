@@ -89,5 +89,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b171d6953a9884c8d738a0a58844e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  screenEdgeBuffer: 4
+  moveSpeed: 2
+  despawnX: -20

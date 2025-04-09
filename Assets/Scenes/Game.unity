@@ -3348,7 +3348,7 @@ MonoBehaviour:
   minSpawnInterval: 2
   maxSpawnInterval: 5
   initialPoolSize: 20
-  despawnX: -20
+  despawnX: -25
   objectSpeed: 0
 --- !u!4 &1583135426
 Transform:

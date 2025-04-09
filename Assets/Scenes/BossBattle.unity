@@ -1210,6 +1210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   offset: 0.1
+  despawnX: -20
   floorSegments:
   - {fileID: 676631073}
   - {fileID: 902926455}
@@ -1228,6 +1229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   offset: 0.01
+  despawnX: -20
   floorSegments:
   - {fileID: 1644496786}
   - {fileID: 1533963947}
@@ -1246,6 +1248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   offset: 0.01
+  despawnX: -20
   floorSegments:
   - {fileID: 1496580785}
   - {fileID: 1904683285}

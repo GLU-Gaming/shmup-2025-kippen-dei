@@ -10,6 +10,6 @@ public class WinMenu : MonoBehaviour
 
     public void Continue()
     {
-        
+        SceneManager.LoadScene("Game");
     }
 }

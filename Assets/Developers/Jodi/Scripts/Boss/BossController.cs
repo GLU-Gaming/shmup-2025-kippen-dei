@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class BossController : MonoBehaviour
 {
     [Header("Health Settings")]
-    public float maxHealth = 1000;
+    public float maxHealth = 15000;
     float currentHealth;
     public Image healthBarFill;
 

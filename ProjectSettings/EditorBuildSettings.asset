@@ -15,12 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: d5ce7c2fa08d0654989d84a92131171d
   - enabled: 1
-    path: Assets/Scenes/Jodi TestScene.unity
-    guid: fb114f3269c6b0046941c3a7e34ae00e
-  - enabled: 1
-    path: Assets/Scenes/Arend TestScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/Bestiary.unity
     guid: 04a411c0042a6a34c926eead2c70031b
   - enabled: 1
@@ -31,7 +25,7 @@ EditorBuildSettings:
     guid: c4b8ecd2fd59114469f03d5cae9dbac2
   - enabled: 1
     path: Assets/Scenes/Credits.unity
-    guid: f9c614fc0a127bd4194470b6432d2d71
+    guid: c22f07404872e4847add6d040eeaf211
   - enabled: 1
     path: Assets/Scenes/AdditionalCredits.unity
     guid: cd7c88b414d0a3b449a3a18a00772d42

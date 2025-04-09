@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - Floor
   - PickUp
-  - 
+  - Intro
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Intro
+    uniqueID: 2528208069
     locked: 0
   m_RenderingLayers:
   - Default

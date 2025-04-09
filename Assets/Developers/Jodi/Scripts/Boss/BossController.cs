@@ -238,24 +238,24 @@ public class BossController : MonoBehaviour
     
         if (random < 0.15f) 
         {
-            droneSpawner.SpawnDroneSwarm(5);
+            droneSpawner.SpawnDroneSwarm(4);
             yield return StartCoroutine(dashAttack.Dash());
         }
         else if (random < 0.4f) 
         {
-            droneSpawner.SpawnDroneSwarm(5);
+            droneSpawner.SpawnDroneSwarm(4);
             laserShooter.FireContinuousBeam(3f);
             yield return new WaitForSeconds(3f);
         }
         else if (random < 0.65f) 
         {
-            droneSpawner.SpawnDroneSwarm(5);
+            droneSpawner.SpawnDroneSwarm(4);
             laserShooterAbove.FireLaser();
             yield return new WaitForSeconds(1f);
         }
         else 
         {
-            droneSpawner.SpawnDroneSwarm(5);
+            droneSpawner.SpawnDroneSwarm(4);
             laserShooterAbove2.FireLaser();
             yield return new WaitForSeconds(1f);
         }

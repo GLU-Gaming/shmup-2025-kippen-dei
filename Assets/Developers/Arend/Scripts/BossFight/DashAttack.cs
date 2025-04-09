@@ -39,6 +39,7 @@ public class DashAttack : MonoBehaviour
     {
         if (isDashing || DashTransform == null) yield break;
 
+        
         isDashing = true;
         bossController.SetDashing(true);
         originalPosition = transform.position;
@@ -67,6 +68,7 @@ public class DashAttack : MonoBehaviour
 
     IEnumerator MoveToPosition(Vector3 target)
     {
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.dashAttack);
         // Maintain vertical position from BossController's movement
         Vector3 finalTarget = new Vector3(target.x, transform.position.y, target.z);
         

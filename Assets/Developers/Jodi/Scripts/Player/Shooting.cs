@@ -54,6 +54,8 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.catShooting);
+
         GameObject newProjectile = Instantiate(currentProjectile, shootPoint.position, shootPoint.rotation);
         
         // Add flicker effect if in warning period

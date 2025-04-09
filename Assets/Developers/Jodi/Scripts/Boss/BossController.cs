@@ -59,6 +59,7 @@ public class BossController : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.PlayMusic(AudioManager.Instance.bossMusic);
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.bossFightStart);
         currentHealth = maxHealth;
         initialY = transform.position.y;
         attackTimer = timeBetweenAttacks;

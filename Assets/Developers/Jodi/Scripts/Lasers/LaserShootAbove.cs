@@ -31,12 +31,14 @@ public class LaserShootAbove : MonoBehaviour
         isCharging = true;
         foreach (var chargeEffect in chargeEffects)
         {
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.laserCharging);
             chargeEffect.StartCharge();
         }
         yield return new WaitForSeconds(chargeTime);
 
         foreach (var chargeEffect in chargeEffects)
         {
+            AudioManager.Instance.StopSoundEffect();
             chargeEffect.StopCharge();
         }
         isCharging = false;
@@ -44,12 +46,14 @@ public class LaserShootAbove : MonoBehaviour
 
         foreach (var laserBeam in laserBeams)
         {
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.uplaserShooting);
             laserBeam.SetActive(true);
         }
         yield return new WaitForSeconds(laserDuration);
 
         foreach (var laserBeam in laserBeams)
         {
+            AudioManager.Instance.StopSoundEffect();
             laserBeam.SetActive(false);
         }
         isFiring = false;

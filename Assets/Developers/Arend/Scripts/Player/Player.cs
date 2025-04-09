@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
     {
         if (isInvincible) return;
 
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.catGettingHit);
+
         playerHp -= damage;
         if (playerHp <= 0)
         {

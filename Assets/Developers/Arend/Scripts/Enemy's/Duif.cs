@@ -11,6 +11,7 @@ public class Duif : EnemyBase
 
     void Start()
     {
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.duifSound);
         transform.position = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
     }
 

@@ -65,12 +65,14 @@ public class LaserShoot : MonoBehaviour
         isCharging = true;
         foreach (var chargeEffect in chargeEffects)
         {
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.laserCharging);
             chargeEffect.StartCharge();
         }
         yield return new WaitForSeconds(chargeTime);
 
         foreach (var chargeEffect in chargeEffects)
         {
+            AudioManager.Instance.StopSoundEffect();
             chargeEffect.StopCharge();
         }
         isCharging = false;
@@ -78,6 +80,7 @@ public class LaserShoot : MonoBehaviour
 
         foreach (var lc in laserComponents)
         {
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.frontlaserShooting);
             lc.gameObject.SetActive(true);
         }
 

@@ -27,6 +27,7 @@ public class DroneAttack : MonoBehaviour
 
     void Start()
     {
+        Destroy(gameObject, 7f);
         initialPosition = transform.position;
         
         // Ensure valid Y range
@@ -49,6 +50,7 @@ public class DroneAttack : MonoBehaviour
                 shootTimer += Time.deltaTime;
                 if (shootTimer >= shootDelay)
                 {
+                    AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.droneShooting);
                     ShootTripleShot();
                     hasShot = true;
                 }

@@ -15,6 +15,7 @@ public class Fish : EnemyBase
 
     void Start()
     {
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.fishSound);
         targetRotation = Quaternion.Euler(0, 0, 0);
     }
 

@@ -16,14 +16,24 @@ public class AudioManager : MonoBehaviour
     public AudioClip bossMusic;
 
     [Header("SFX AudioClips")]
-    public AudioClip bossLaser;
+    public AudioClip duifSound;
+    public AudioClip ratSound;
+    public AudioClip fishSound;
+    public AudioClip catGettingHit;
+    public AudioClip catShooting;
+    public AudioClip bossFightStart;
+    public AudioClip droneShooting;
+    public AudioClip laserCharging;
+    public AudioClip frontlaserShooting;
+    public AudioClip uplaserShooting;
+    public AudioClip dashAttack;
 
 
     void Awake()
     {
         if (Instance == null)
         {
-            Instance = this;
+            Instance = this;// de reference naar het script
         }
         else
         {
@@ -58,5 +68,9 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+    public void StopSoundEffect()
+    {
+        SFXSource.Stop();
     }
 }

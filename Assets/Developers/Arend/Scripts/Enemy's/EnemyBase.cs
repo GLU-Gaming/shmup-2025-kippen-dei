@@ -6,8 +6,12 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Health Settings")]
     public float hp = 100f; // Health points
 
-    
+    private AudioSource EnemySFXSource;
 
+    private void Start()
+    {
+        EnemySFXSource = GetComponent<AudioSource>();
+    }
     public abstract void Move();
 
     void OnCollisionEnter(Collision collision)
@@ -33,8 +37,9 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     //when health points reach 0, destroy the object
-    void Die()
+    void  Die()
     {
+        
         Destroy(gameObject);
         FindObjectOfType<ScoreManager>().AddScore(10);
     }

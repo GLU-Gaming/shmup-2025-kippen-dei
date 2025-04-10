@@ -46,7 +46,7 @@ public class LaserShootAbove : MonoBehaviour
 
         foreach (var laserBeam in laserBeams)
         {
-            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.uplaserShooting);
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.frontlaserShooting);
             laserBeam.SetActive(true);
         }
         yield return new WaitForSeconds(laserDuration);

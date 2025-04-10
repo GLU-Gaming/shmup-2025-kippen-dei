@@ -11,7 +11,6 @@ public class Rat : EnemyBase
 
     void Start()
     {
-        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.ratSound);
         // Begin met beweging naar beneden
         direction = Vector3.down;
     }

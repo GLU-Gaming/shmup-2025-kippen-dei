@@ -7996,9 +7996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: His Regal Snoutness, Sir Bartholomuel the Fifth of House Hardfordshire-Honor,
     Goodest Boy of the Honorable Sir Hasselhof the Twenty-Second, Baron of Tully-on-the-Green,
-    Loyal Descendant of the Sage Sniffer Sir Bartholomew Keckermann the Ninth of
-    Auvergne, Bonekeeper of the Eastern Fields, Howler of the High Moors, Scratcher
-    of Ancient Doors, First of His Litter, and Grand Pawtector of the Realm of Tailwind.
+    Loyal Descendant of the Sniffer Sir Bartholomew Keckermann the Ninth of Auvergne,
+    Scratcher of Ancient Doors, First of His Litter, and Grand Pawtector.
   charactersPerSecond: 15
   shakeIntensity: 0.1
   textShowDuration: 3
@@ -13885,15 +13884,15 @@ RectTransform:
   m_GameObject: {fileID: 1620856305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.075131476, y: 1.2987689, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.06, y: 1.0371969, z: 0.7986}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 237209264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.7, y: 92}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -17.4, y: 67.608}
+  m_SizeDelta: {x: 2099.3015, y: 78.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620856307
 MonoBehaviour:
@@ -13917,9 +13916,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: His Regal Snoutness, Sir Bartholomuel the Fifth of House Hardfordshire-Honor,
     Goodest Boy of the Honorable Sir Hasselhof the Twenty-Second, Baron of Tully-on-the-Green,
-    Loyal Descendant of the Sage Sniffer Sir Bartholomew Keckermann the Ninth of
-    Auvergne, Bonekeeper of the Eastern Fields, Howler of the High Moors, Scratcher
-    of Ancient Doors, First of His Litter, and Grand Pawtector of the Realm of Tailwind.
+    Loyal Descendant of the Sniffer Sir Bartholomew Keckermann the Ninth of Auvergne,
+    Scratcher of Ancient Doors, First of His Litter, and Grand Pawtector.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13946,8 +13944,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40.6
+  m_fontSizeBase: 40.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

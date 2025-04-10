@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 4084523074653529322}
   - component: {fileID: 7650386548384891714}
   - component: {fileID: 227116099458641689}
+  - component: {fileID: 8957848659571807799}
   m_Layer: 0
   m_Name: turning propellor
   m_TagString: Untagged
@@ -368,3 +369,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8957848659571807799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813580393001621336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925e671e85d68c9489c6457aaf16b2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 900

@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class RotateModel : MonoBehaviour
 {
-    public float rotationSpeed = 15f;
+    public float rotationSpeed = 500f; // Increased speed to mimic a propeller
 
     void Update()
     {
-        transform.Rotate(Vector3.up * (rotationSpeed * Time.deltaTime));
+        // Rotate around the Z-axis
+        transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
 }
